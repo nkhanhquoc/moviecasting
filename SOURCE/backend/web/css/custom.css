@@ -1,0 +1,33 @@
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-toggler,
+.page-sidebar .sidebar-toggler {
+    background: #3a4656 url("../img/sidebar_toggler_icon_default.png") no-repeat scroll 7px 7px;
+}
+
+.sidebar-toggler-container {
+    width: 30px !important;
+    border-radius: 4px;
+    margin: 10px 0 0 92px;
+}
+
+.page-sidebar-closed .sidebar-toggler-container {
+    margin-left: 9px !important;
+    width: 30px !important;
+}
+
+.page-sidebar .sidebar-toggler:hover,
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-toggler:hover {
+    filter: alpha(opacity=100);
+    background: #24303E url("../img/sidebar_toggler_icon_default.png") no-repeat scroll 7px 7px;
+    opacity: 1;
+}
+
+.sidebar-toggler-container .sidebar-toggler {
+    float: right; margin-top: 0; margin-right: 0;
+}
+
+.aws-thead-float > .table-bordered {
+    border-bottom: 1px solid #ddd !important;
+}
+.control-label {
+    font-weight: bold;
+}
