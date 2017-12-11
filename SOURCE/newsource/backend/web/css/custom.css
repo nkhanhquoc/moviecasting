@@ -1,0 +1,287 @@
+/* here you can put your own css to customize and override the theme */
+
+/* HoangL */
+
+.lock-form .form-actions, .lock-form .form-group {
+    margin: 0 0 25px;
+    padding-top: 10px;
+}
+
+.lock-form .form-actions .form-group {
+    float: left;
+    padding-left: 15px;
+    margin: 0;
+}
+
+.lock-form .form-actions .form-group:not(.has-success) .md-checkbox label {
+    color: #ccc;
+}
+
+.md-checkbox label {
+    font-weight: normal;
+}
+
+.page-content-wrapper .page-content .col-md-12 {
+    padding-top: 15px;
+}
+
+.portlet.light > .portlet-title > .caption {
+    padding: 7px 0 0;
+}
+
+.portlet.light > .portlet-title > .actions {
+    padding: 0;
+}
+
+.dataTables_extended_wrapper {
+    margin-top: 0;
+}
+
+.portlet.light.portlet-datatable.portlet-fit > .portlet-body {
+    padding: 10px 0 25px 0;
+}
+
+.dataTables_extended_wrapper .row {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.portlet-datatable .dataTables_wrapper .table-responsive {
+    padding: 0 !important;
+}
+
+.portlet-datatable .dataTables_wrapper .table-bordered {
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+.form-body .form-group.form-md-line-input {
+    margin: 0;
+}
+
+.form-body .form-group.form-md-line-input.form-md-floating-label {
+    margin: 0 0 20px;
+}
+
+.portlet-fit .portlet-body .form-body .uploadify {
+    padding-top: 10px;
+}
+
+table.dataTable thead td, table.dataTable thead th {
+    border-bottom: 1px solid #e7ecf1;
+}
+
+/*.aws-thead-float > .table-bordered {*/
+/*border-bottom: 1px solid #ddd !important;*/
+/*}*/
+
+.aws-thead-float table.dataTable thead tr th a {
+    /*background: #fff;*/
+    text-decoration: none;
+    color: #333 !important;
+}
+
+.aws-thead-float table.dataTable thead tr th {
+    /*background: #fff;*/
+    /*color: #fff !important;*/
+}
+
+.aws-thead-float table.dataTable thead tr {
+    background: #fff;
+    /*color: #fff !important;*/
+}
+
+.aws-thead-float .table.dataTable {
+    margin: 0 !important;
+}
+
+/*.lock-form .form-actions .btn {*/
+/*width: 100px;*/
+/*float: left;*/
+/*}*/
+
+/*.lock-form .login-100 {*/
+/*width: 100% !important;*/
+/*}*/
+/*.lock-form .login-50 {*/
+/*width: 50% !important;*/
+/*}*/
+
+/*.lock-body {*/
+/*margin: 0;*/
+/*}*/
+
+/*.lock-form .form-actions, .lock-form .form-group {*/
+/*margin-bottom: 10px;*/
+/*}*/
+
+/*.lock-form .form-actions {*/
+/*margin-top: 10px;*/
+/*}*/
+
+/*.lock-form {*/
+/*padding-right: 20px;*/
+/*}*/
+
+/*trungth_custom search bar*/
+.search_form {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.search_form tr {
+    height: 35px;
+}
+
+.table_report .first_col {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table_report td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table_report th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+input:placeholder-shown {
+    font-style: italic;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.search_form input {
+    width: 100%;
+}
+
+.table_report th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cc_h1 {
+    font-weight: 400;
+    font-size: 18px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.no_data img {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.uploadify {
+    padding-left: 10px;
+}
+
+.uploadify-button.btn {
+    line-height: 18px !important;
+}
+#website-list {width: 550px;}
+.website-item {
+    border-bottom: 1px solid #ccc;
+}
+.website-item .website-action {
+    padding-right: 10px;
+}
+.form-group.form-md-line-input.has-success .form-control.edited:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input.has-success .form-control.edited:not([readonly])~label:after, .form-group.form-md-line-input.has-success .form-control.focus:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input.has-success .form-control.focus:not([readonly])~label:after, .form-group.form-md-line-input.has-success .form-control.form-control-static~.form-control-focus:after, .form-group.form-md-line-input.has-success .form-control.form-control-static~label:after, .form-group.form-md-line-input.has-success .form-control:focus:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input.has-success .form-control:focus:not([readonly])~label:after {
+    background: none;
+}
+.control-label {
+    color: #888;
+}
+.form-group.form-md-line-input.form-md-floating-label.has-error .form-control~label {
+    color: #e73d4a;
+}
+.campaign-warning {
+    color: red;
+    font-weight: bold;
+}
+.campaign-warning:before {
+    vertical-align: bottom;
+    color: red;
+    padding-right: 5px;
+    font-size: 18px;
+    font-weight: normal;
+}
+.form-group.form-md-line-input .help-block {opacity: 1;font-style: italic;}
+.form-group.form-md-line-input .form-control.edited:not([readonly]):not(:focus)~.help-block, .form-group.form-md-line-input .form-control.edited:not([readonly]):not(:focus)~.help-block-error, .form-group.form-md-line-input .form-control.edited:not([readonly])~.help-block-error, .form-group.form-md-line-input .form-control:focus:not([readonly])~.help-block-error{opacity: 1;}
+.daterange-field {font-size: 11px;}
+.table-container .alert {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+/** Fix UI/UX **/
+.portlet {overflow-x: scroll;}
+.row-actions a {
+    margin-right: 10px;
+}
+/*.page-sidebar-wrapper {position: fixed; z-index: 2;}*/
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.7;
+}
+.grid-view .select2-bootstrap-prepend {width: 250px;}
+.grid-view select {min-width: 100px;}
+.grid-view input {min-width: 150px;}
+.table-striped>tbody>tr:nth-of-type(odd) {background-color: #f0f3f5;}
+.table-hover>tbody>tr:hover, .table-hover>tbody>tr:hover>td{background-color: #c9cdd2 !important;}
+div.required label:after, .form-group.form-md-line-input.required .form-control~label:after {
+    content: " *";
+    visibility: visible;
+    position: initial;
+}
+.form-group.form-md-line-input.has-error .form-control.edited:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input.has-error .form-control.edited:not([readonly])~label:after, .form-group.form-md-line-input.has-error .form-control.focus:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input.has-error .form-control.focus:not([readonly])~label:after, .form-group.form-md-line-input.has-error .form-control.form-control-static~.form-control-focus:after, .form-group.form-md-line-input.has-error .form-control.form-control-static~label:after, .form-group.form-md-line-input.has-error .form-control:focus:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input.has-error .form-control:focus:not([readonly])~label:after{
+    background: none;
+}
+.form-group.form-md-line-input .form-control.edited:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input .form-control.edited:not([readonly])~label:after, .form-group.form-md-line-input .form-control:focus:not([readonly])~.form-control-focus:after, .form-group.form-md-line-input .form-control:focus:not([readonly])~label:after{
+    background: none;
+}
+#login-form .lock-head,#login-form .form-group.form-md-line-input.form-md-floating-label .form-control~label, #login-form .lock-form .form-actions .form-group:not(.has-success) .md-checkbox label{
+    color: #f5f5f5;
+}
+#page-loading {
+    position: fixed;
+    top: 130px;
+    text-align: center;
+    z-index: 9999;
+    width: 80%;
+}
+.page-sidebar-closed #page-loading {
+    width: 100%;
+}
+@media screen and (max-width: 900px) {
+    #page-loading {
+        width: 100%;
+    }
+}
+
+.captcha-refresh-icon {
+    color: #f5f5f5;
+    vertical-align: middle;
+    cursor: pointer;
+}
+#loginform-captcha-image {cursor: pointer;}
+.captcha-refresh-icon:hover {color: #36c6d3;}
+.lock-form .form-group .form-control {color: #f5f5f5;}
+.page-header.navbar .page-logo .text-logo {
+    font-size: 16px;
+    color: #eead73;
+    font-weight: bold;
+    padding: 0;
+    line-height: 50px;
+    margin: 0;
+    text-decoration: none;
+}
+.page-logo .text-logo span {
+    color: #c55136;
+}
+a[href='#'] {
+    text-decoration: none !important;
+    cursor: default !important;
+}
