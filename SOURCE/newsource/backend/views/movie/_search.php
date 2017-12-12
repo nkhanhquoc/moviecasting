@@ -2,10 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use backend\models\Movie;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\MenuSearch */
 /* @var $form yii\widgets\ActiveForm */
+
+
 ?>
 
 <div class="menu-search">
@@ -13,25 +16,20 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
-    ]); ?>
-
-    
+    ]); ?>   
 
     <?= $form->field($model, 'name') ?>
-    
-  
-
     <?= $form->field($model, 'type')->dropDownList(
                     [
                         1 => "Phim lẻ",
-                        2 => "Phim dài tập",
+                        2 => "Phim bộ"
                     ],
                     ['prompt'=>'Tất cả']
                 )?>
     <div class="form-group">
         <lablel class="control-label">Ngày tạo từ</lablel>
     <?= yii\jui\DatePicker::widget([
-                            'name' => 'MovieSearch[end_time_from]',
+                            'name' => 'CastingSearch[end_time_from]',
                             'dateFormat' => 'php:Y-m-d',
                             'language' => 'vi',
                             'value' => \yii\helpers\Html::encode($fromTime),
@@ -44,7 +42,7 @@ use yii\widgets\ActiveForm;
         <lablel class="control-label">Ngày tạo đến</lablel>
     <?=
                         yii\jui\DatePicker::widget([
-                            'name' => 'MovieSearch[end_time_to]',
+                            'name' => 'CastingSearch[end_time_to]',
                             'dateFormat' => 'php:Y-m-d',
                             'language' => 'vi',
                             'value' => \yii\helpers\Html::encode($toTime),

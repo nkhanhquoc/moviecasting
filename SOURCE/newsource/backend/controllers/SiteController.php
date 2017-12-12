@@ -80,6 +80,7 @@
 				if ($numIpFailed <= $limitIp) {
 				  Yii::$app->session->set('rememberMe', $model->rememberMe);
 				  if ($model->login()) {
+//				  if (true) {
 					// login success
 //					$user_cp = CsmCp::getByUserName($model->username);
 //					Yii::$app->session->set('user_cp', $user_cp);

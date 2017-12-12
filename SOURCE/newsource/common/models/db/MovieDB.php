@@ -16,6 +16,7 @@ use Yii;
  * @property string $created_time
  * @property integer $type
  * @property string $updated_time
+ * @property integer $status
  */
 class MovieDB extends \yii\db\ActiveRecord
 {
@@ -35,7 +36,7 @@ class MovieDB extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['end_time', 'created_time', 'updated_time'], 'safe'],
-            [['type'], 'integer'],
+            [['type', 'status'], 'integer'],
             [['name', 'short_description', 'image_path'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 2000]
         ];
@@ -56,6 +57,7 @@ class MovieDB extends \yii\db\ActiveRecord
             'created_time' => Yii::t('backend', 'Created Time'),
             'type' => Yii::t('backend', 'Type'),
             'updated_time' => Yii::t('backend', 'Updated Time'),
+            'status' => Yii::t('backend', 'Status'),
         ];
     }
 }

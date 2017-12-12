@@ -6,13 +6,14 @@ use awesome\backend\widgets\AwsBaseHtml;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use yii\grid\GridView;
+use backend\models\Movie;
 
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\MenuSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Movie');
+$this->title = Yii::t('backend', 'Phim');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Admin'), 'url' => '#'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -29,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="actions">
                     <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-                        'modelClass' => 'Movie',
+                        'modelClass' => 'Phim',
                     ]),
                         ['create'], ['class' => 'btn btn-info btn-outline btn-circle btn-sm']) ?>
                 </div>
@@ -47,18 +48,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
                             'name',
-                            'end_time',
                             [
                                 'attribute' => 'type',
                                 'format' => 'raw', //raw, html
                                 'content' => function($dataProvider) {
                                 switch($dataProvider['type']){
-                                    case 1: return "Phim lẻ";
-                                    case 2: return "Phim bộ";
-                                    default: return $dataProvider['type'];
+                                    case 1: return "Phim lẻ"; 
+                                    case 2: return "Phim bộ"; 
+                                };
                                 }
-                                }
-                            ],                            
+                            ],
+                            'created_time',                           
+                            'end_time',                           
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
                     ]); ?>

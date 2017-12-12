@@ -788,12 +788,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-date-range.git",
-                "reference": "01b9202c9141e7c939c233c803e8693a23c15374"
+                "reference": "70fd9597e24cf6c03004b345cae3c078708b373a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-date-range/zipball/01b9202c9141e7c939c233c803e8693a23c15374",
-                "reference": "01b9202c9141e7c939c233c803e8693a23c15374",
+                "url": "https://api.github.com/repos/kartik-v/yii2-date-range/zipball/70fd9597e24cf6c03004b345cae3c078708b373a",
+                "reference": "70fd9597e24cf6c03004b345cae3c078708b373a",
                 "shasum": ""
             },
             "require": {
@@ -834,7 +834,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-03-13 05:14:28"
+            "time": "2017-12-08T03:08:09+00:00"
         },
         {
             "name": "kartik-v/yii2-grid",
