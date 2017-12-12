@@ -1,2 +1,7 @@
 /SOURCE/newsource/vendor/
 /SOURCE/oldsource/vendor/
+/SOURCE/newsource/backend/web/assets/
+/SOURCE/newsource/environments/
+/SOURCE/newsource/logs/
+/SOURCE/newsource/backend/runtime/
+/DESIGN
