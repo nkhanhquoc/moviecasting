@@ -25,13 +25,10 @@ use yii\helpers\Html;
     </div>
     <div class="portlet-body">
         <div class="form-body">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => 50]) ?>            
-            <?= $form->field($model, 'movie_id')->dropDownList(
-                    $model->getAllMovie()
-                    ) ?>   
-            
+            <?= $form->field($model, 'name')->textInput(['maxlength' => 50]) ?>
             <?= Html::img($model['image_path'], ['width' => '60px']); ?>
             <?= $form->field($model, 'image_path')->fileInput()?> 
+            <?= $form->field($model, 'short_description')->textarea(['rows' => 2]) ?>  
             
             <?= $form->field($model, 'description')->widget(CKEditor::className(), [
                     'options' => ['rows' => 10],

@@ -126,7 +126,7 @@ class MovieController extends AppController{
             if ($model->upload() && $model->uploadBanner())
             {
 //                $model->updateCategory();
-//                $model->save();
+                $model->save();
                 Yii::$app->session->setFlash('success', "Cập nhật thành công!");
                 return $this->render('update', [
                     'model' => $model,

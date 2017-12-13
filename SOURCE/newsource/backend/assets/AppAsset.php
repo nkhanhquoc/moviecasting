@@ -36,6 +36,8 @@ class AppAsset extends AssetBundle {
         'js/metronic/layout.min.js',
         'js/metronic/quick-sidebar.min.js',
         'js/admin.js?v1.0',
+        'js/styles.js'
+       
     ];
     public $depends = [
         'yii\web\YiiAsset',
