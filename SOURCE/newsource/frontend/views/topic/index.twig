@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+  	<div class="col-md-12">
+        <div class="mdl-1 mdl-playlists">
+    	  <div class="title ellipsis">
+              <a href="javascript:void(0)" class="txt"> Chủ đề</a>
+          </div>
+          <!-- Nav tabs -->
+          <ul class="nav nav-pills" role="tablist">
+            <li><a href="#profile" role="tab" data-toggle="tab"></a></li>
+            <li><a href="#messages" role="tab" data-toggle="tab"></a></li>
+            <li class="active"><a href="javascript:void(0)" role="tab" data-toggle="tab">Nổi bật</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                   <div class="row">
+                     {% for val in listTopic %}
+                       <div class="col-sm-3 col-md-3 col-xs-6 item">
+                           <a {{ ajax_url('topic/detail',{'slug':val.slug})|raw }} class="image-play">
+                               <img width="100%" src="{{ val.image_path|imagePathThumb(225,0,'video') }}">
+                               <i class="fa icon-play"></i>
+                           </a>
+                           <a {{ ajax_url('topic/detail',{'slug':val.slug})|raw }} class="song-name ellipsis">
+                             {{val.name}}</a>
+                       </div>
+                     {% endfor %}
+                   </div>
+                   <!--Pagination
+                    <nav>
+                      <ul class="pager">
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#" class="active">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                      </ul>
+                    </nav>
+                    -->
+                    {{include('@app/views/components/pagination.twig',{'pages':pages})}}
+                </div>
+                <div role="tabpanel" class="tab-pane" id="profile">... 2</div>
+                <div role="tabpanel" class="tab-pane" id="messages">... 3</div>
+              </div>
+    </div>
+    </div>
+
+
+  </div>
+
+</div>

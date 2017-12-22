@@ -53,7 +53,7 @@ DefaultAsset::register($this);
                 ?>
             </div>
         </div>
-        <div class="page-footer-custom"> 2016 &copy; TT VAS - VTT.</div>
+        <div class="page-footer-custom"> 2017 &copy; OrionMedia</div>
     </div>
 
     <?php $this->endBody() ?>

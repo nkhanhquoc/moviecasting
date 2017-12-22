@@ -1,0 +1,20 @@
+<div class="mdl-1 mdl-video-nominations">
+  <div class="title">
+       <a href="#" class="txt"> Videos chọn lọc</a>
+ </div>
+   <div class="row">
+     {% for val in videos %}
+         <div class="col-md-4 col-xs-4 item">
+             <a href="{{ url('video/detail', {'slug' : val.slug}) }}" class="image-play">
+                 <img width="100%" src="{{ val.image_path|imagePathThumb(171, 96, 'video') }}">
+                 <i class="fa icon-play"></i>
+             </a>
+             <a href="{{ url('video/detail', {'slug' : val.slug}) }}" class="song-name ellipsis">
+               {{val.name}}</a>
+             <p class="singer-name ellipsis"><a href="{{ url('video/detail', {'slug' : val.slug}) }}">
+               {{ val.getSingerName() }}</a></p>
+         </div>
+     {% endfor %}
+
+  </div>
+</div>

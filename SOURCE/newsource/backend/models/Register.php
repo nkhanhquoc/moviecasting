@@ -27,10 +27,22 @@ class Register extends RegisterBase {
             'timestamp' => [
                 'class' => 'yii\behaviors\TimestampBehavior',
                 'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_time', 'updated_time'],
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_time'],
                 ],
                 'value' => new Expression('NOW()'),
             ],
+        ];
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function rules() {
+        return [
+            [['name','casting_id','genre','birth_year','msisdn','location','weight','height'
+                ,'chest','waist','butt','facebook'], 'required'],            
+            [['genre', 'msisdn', 'weight','height', 'chest', 'waist','butt'], 'integer']           
         ];
     }
 
@@ -45,17 +57,16 @@ class Register extends RegisterBase {
             'outfit' => 'Vẻ ngoài',
             'height' => 'Chiều cao',
             'weight' => 'Cân nặng',
-            'chest' => 'Vòng ngực',
-            'waist' => 'Vòng eo',
-            'butt' => 'Vòng 3',
+            'chest' => 'Vòng một',
+            'waist' => 'Vòng hai',
+            'butt' => 'Vòng ba',
             'portrait' => 'Chân dung',
             'facebook' => 'Facebook',
             'product' => 'Sản phẩm',
-            'facebook' => 'Facebook',
             'star' => 'Đánh giá',
             'created_time' => 'Thời gian đăng ký',
-            'status' => 'Active',
-            'sodo'=>"Số đo"
+            'status' => 'Trạng thái kích hoạt',
+            'sodo' => 'Số đo ba vòng'
         ];
     }
 
@@ -86,6 +97,76 @@ class Register extends RegisterBase {
 
     public function getSodo() {
         return $this->chest . "-" . $this->waist . "-" . $this->butt;
+    }
+    
+    public function upload() {
+        $structure = 'register';
+        $struc_path = Yii::getAlias('@webroot') . '/' . Yii::$app->params['upload_dir'][$structure];
+
+        if ($this->isNewRecord) {
+            if (!is_dir($structure)) {
+                FileHelper::createDirectory($struc_path);
+            }
+            $imagepath = Images::uploadFile($this, 'outfit', $structure);
+            if ($imagepath['errorCode'] == 0) {
+                // file is uploaded successfully
+                $this->image_path = $imagepath['file'];
+                return true;
+            }
+            return false;
+        } else {
+            if ($_FILES["Register"]["name"]["outfit"] == null) {
+                unset($this->image_path);
+                return true;
+            } else {
+                if (!is_dir($structure)) {
+                    FileHelper::createDirectory($struc_path);
+                }
+                $imagepath = Images::uploadFile($this, 'outfit', $structure);
+
+                if ($imagepath['errorCode'] == 0) {
+                    // file is uploaded successfully
+                    $this->image_path = $imagepath['file'];
+                    return true;
+                }
+                return false;
+            }
+        }
+    }
+    
+    public function uploadPortrait() {
+        $structure = 'register';
+        $struc_path = Yii::getAlias('@webroot') . '/' . Yii::$app->params['upload_dir'][$structure];
+
+        if ($this->isNewRecord) {
+            if (!is_dir($structure)) {
+                FileHelper::createDirectory($struc_path);
+            }
+            $imagepath = Images::uploadFile($this, 'portrait', $structure);
+            if ($imagepath['errorCode'] == 0) {
+                // file is uploaded successfully
+                $this->portrait = $imagepath['file'];
+                return true;
+            }
+            return false;
+        } else {
+            if ($_FILES["Register"]["name"]["portrait"] == null) {
+                unset($this->portrait);
+                return true;
+            } else {
+                if (!is_dir($structure)) {
+                    FileHelper::createDirectory($struc_path);
+                }
+                $imagepath = Images::uploadFile($this, 'portrait', $structure);
+
+                if ($imagepath['errorCode'] == 0) {
+                    // file is uploaded successfully
+                    $this->portrait = $imagepath['file'];
+                    return true;
+                }
+                return false;
+            }
+        }
     }
 
 }

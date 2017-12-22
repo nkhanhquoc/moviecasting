@@ -8,7 +8,6 @@ use yii\helpers\Html;
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
     'modelClass' => 'Phim',
 ]) . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Admin'), 'url' => '#'];
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Phim'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->name;
 ?>

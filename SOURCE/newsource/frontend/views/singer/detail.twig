@@ -1,0 +1,26 @@
+<div class="banner-02" style="background-image:url(/images/img_03.jpg)">
+  <div class="container">
+    <div class="">
+        <img src="/images/4x4.png" width="200" class="img-circle"/>
+        <div class="big-name"><h1>{{singer.alias}}</h1></div>
+        <!-- <div><a href="#" class="like"> <i class="fa fa-heart-o"></i> Yêu Thích</a></div> -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-7">
+      {{ include('_info.twig',{'singer':singer})}}
+      {{ include('_song.twig',{'listSong':listSong})}}
+
+      <div class="mdl-comment">
+        {{include('@app/views/components/commentFacebook.twig',{'link':url('singer/detail',{'slug':singer.slug})})}}
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-5">
+      {{ include('_album.twig',{'listAlbum':listAlbum}) }}
+      {{ include('_video.twig',{'listVideo':listVideo}) }}
+    </div>
+  </div>
+</div>

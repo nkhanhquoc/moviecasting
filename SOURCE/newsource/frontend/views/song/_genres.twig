@@ -1,0 +1,14 @@
+<div class="col-sm-3 col-md-3">
+    	 <div class="mdl-links">
+         	<div class="scroll-pane horizontal-only">
+            {% for genre in listGenre %}
+              {% if genre.id == genreId %}
+                <div class="title" style="color:#EE3A02">{{ genre.name }}</div>
+              {% else %}
+                  <a {{ ajax_url('song/index',{'slug':genre.slug})|raw }} class="item" data-dismiss="modal">{{ genre.name }}</a>
+              {% endif %}
+            {% endfor %}
+
+            </div>
+         </div>
+    </div>

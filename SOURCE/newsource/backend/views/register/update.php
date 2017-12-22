@@ -6,10 +6,9 @@ use yii\helpers\Html;
 /* @var $model backend\models\Menu */
 
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
-    'modelClass' => 'Phim',
+    'modelClass' => 'Register',
 ]) . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Admin'), 'url' => '#'];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Phim'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Đăng ký'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update') . ' ' . $model->name;
 ?>
 <div class="row menu-update">

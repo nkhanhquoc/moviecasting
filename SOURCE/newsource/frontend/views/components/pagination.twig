@@ -1,0 +1,9 @@
+<nav>
+  <ul class="pager">
+    {% for link in pages|linkPager %}
+        <li class="{{ link.numb == pages.page + 1 ? 'active':'' }}">
+          <a href="{{link.url}}" class="{{ link.numb == pages.page + 1 ? 'active':'' }}">{{link.numb}}</a>
+        </li>
+    {% endfor %}
+  </ul>
+</nav>

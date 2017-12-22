@@ -1,0 +1,36 @@
+<div class="banner-02" style="background-image:url({{playlist.image_path}})">
+  <div class="container">
+    <div class="">
+        <h1 class="name">{{playlist.name}}</h1>
+        <!-- <p class="description">Tận hưởng những ngày hè sau một thời gian học tập căng thẳng cùng với âm nhạc.</p> -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="info-song">
+  		<span class="listener pull-right"><i class="fa icon-headphone"></i>
+          {{ (val.view_number=='' or playlist.view_number is null)?'0':playlist.view_number|formatNumber }}
+        </span>
+        <a href="javascript:void(0)" id="playlist-data-play" class="bg-color-01 btn-function play-playlist-now"
+        data-play="{{ (url('ajax/get-playlist-player',{'slug':playlist.slug}))|encodeJsonNotSong(playlist) }}"><i class="fa icon-play2"></i> Nghe</a>
+        <!-- <a href="#" class="bg-color-02 btn-function"><i class="fa icon-add-playlist"></i> Playlist</a> -->
+        <!-- <a href="javascript:void(0)" class="bg-color-03 btn-function"><i class="fa icon-download"></i> Tải</a> -->
+        <!-- <a href="#" class="bg-color-05 btn-function"><i class="fa fa-mobile"></i> Nhạc chờ</a> -->
+        <!-- <a href="javascript:void(0)" onclick="shareFB()" class="bg-color-04 btn-function"><i class="fa icon-gift"></i> Chia sẻ</a> -->
+  		<!-- <img src="/images/img_14.jpg" width="143" height="30" alt=""/> -->
+      {{ include('@app/views/components/likeFacebook.twig',{'link':url('playlist/detail',{'slug':playlist.slug}) })}}
+  </div>
+  <div class="row">
+      <div class="col-sm-6 col-md-7">
+          {{ include('_listSong.twig',{'listSong':listSong}) }}
+          <div class="mdl-comment">
+            {{include('@app/views/components/commentFacebook.twig',{'link':url('playlist/detail',{'slug':playlist.slug})})}}
+          </div>
+      </div>
+      <div class="col-sm-6 col-md-5">
+          {{ include('_related.twig',{'playlist':listRelated}) }}
+          {{ include('_hot.twig',{'playlist':listHot}) }}
+      </div>
+  </div>
+</div>

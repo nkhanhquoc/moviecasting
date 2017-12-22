@@ -1,0 +1,77 @@
+<div class="banner-02" id="banner-video-player">
+  <div class="container" id="videoDetailPopup">
+    <div>
+      {% set imagePoster = video.image_path | imagePath('video') %}
+      <!-- {% set width = selectQualityKey|slice(0,selectQualityKey|length - 1) %} -->
+        <div class="pull-left player">
+          <div id="playerVideoPopup">
+            <img>
+          </div>
+        <div class="player-bar">
+          <div class="player-container proccess-bar" id="videoProccessBar">
+            <div class="control-left">
+                <a href="javascript:void(0);" class="jp-play btnPlayVideo">
+                  <i class="fa icon-play2 selected"></i>
+                </a><!--remove class 'selected' for normal case-->
+                <a href="javascript:void(0);" style="display:none;" class="jp-pause">
+                  <i class="fa icon-pause2"></i>
+                </a>
+                <!-- <a href="javascript:void(0);" class="next"><i class="fa icon-next"></i></a> -->
+                <!--<a href="javascript:void(0);" class="previous"><i class="fa icon-previous"></i></a>-->
+                <!-- <a href="javascript:void(0);" class="shuffle"><i class="fa icon-shuffle"></i></a> -->
+            </div>
+            <div  class="control-center">
+               <div class="fullscreen">
+                    <a href="javascript:void(0);" id="btnVideoFullScreen"><i class="fa icon-fullscreen"></i></a>
+                    <a href="javascript:void(0);" style="display:none;"><i class="fa icon-fullscreen-close"></i></a>
+               </div>
+               <div class="volume">
+                    <!-- <a href="javascript:void(0);"><i class="fa icon-volume"></i></a> -->
+                    <!-- <a href="javascript:void(0);" style="display:none"><i class="fa icon-volume-off"></i></a> -->
+               </div>
+               <div class="text-elapsed time-line jp-current-time">00:00</div>
+              <div class="text-duration time-line jp-duration">00:00</div>
+              <div class="slider-horizontal">
+                <div class="buffer" style="width:0%"></div>
+                <div id="videoPlayerProcess" class="progess real-time jp-play-bar" style="width:0%">
+                    <div class="knob"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+		<p class="name-video"><a href="javascript:void(0)">{{ video.getSingerName() }}</a></p>
+        <h1>{{video.name}}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="info-song">
+  		<span class="listener pull-right"><i class="fa icon-headphone"></i> {{ (video.view_number=='' or video.view_number is null)?'0':video.view_number|formatNumber }}</span>
+        <a href="javascript:void(0);" class="bg-color-01 btn-function btnPlayVideo"><i class="fa icon-play2"></i> Nghe</a>
+        <a href="javascript:void(0);" class="bg-color-03 btn-function"><i class="fa icon-download"></i> Tải</a>
+  		{{include('@app/views/components/likeFacebook.twig',{'link':url('video/detail',{'slug':video.slug})})}}
+  </div>
+  <div class="row">
+        <div class="col-sm-6 col-md-7">
+          {{include('_song.twig',{'song':songs})}}
+          {{include('_albumsingers.twig',{'albumsSinger':albumsSinger})}}
+           <div class="mdl-comment">
+             {{include('@app/views/components/commentFacebook.twig',{'link':url('song/detail',{'slug':song.slug})})}}
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-5">
+            {{include('_hot.twig',{'hot':hot})}}
+        </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+currentVideoQuality = '{{ selectQualityKey }}';
+qualityPathVideo = '{{ qualityPath }}';
+imageBlurVideo = '{{ imageBlur }}';
+imagePathVideo = '{{ imagePoster }}';
+titleVideo = '{{ video.name }}';
+</script>

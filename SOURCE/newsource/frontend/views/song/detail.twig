@@ -1,0 +1,58 @@
+{{ this.registerMetaTag({'name':'title', 'content':song.name ~ ' - ' ~ singerName }) }}
+{{ this.registerMetaTag({'name':'description', 'content':'Nghe nhạc miễn phí Data tại imuzik.vn'}) }}
+{{ this.registerMetaTag({'property':'og:type', 'content':'audio'}) }}
+{{ this.registerMetaTag({'property':'og:url', 'content':url('song/song-detail',{'slug':song.slug})}) }}
+{{ this.registerMetaTag({'property':'og:image', 'content':imagePoster}) }}
+{{ this.registerMetaTag({'property':'og:site_name', 'content':'Imuzik4G'}) }}
+
+<div class="banner-02" style="background-image:url({{imagePoster}})">
+  <div class="container">
+    <div class="">
+        <img src="{{ imagePoster }}" width="200" class="image"/>
+        <p class="name"><a href="javascript:void(0)">{{singerName}}</a></p>
+        <h1>{{ song.name }}</h1>
+    </div>
+   </div>
+</div>
+<input type="hidden" id="song-slug" value="{{song.slug}}">
+<div class="container">
+  <div class="info-song">
+  		<span class="listener pull-right"><i class="fa icon-headphone"></i> {{ (song.view_number=='' or song.view_number is null)?'0':song.view_number|formatNumber }}</span>
+        <a href="javascript:void(0)" id="song-{{song.slug}}"
+        data-play="{{ song|encodeSongBase64(singerName,imagePoster,imageBlur) }}" class="bg-color-01 btn-function play-song-now"><i class="fa icon-play2"></i> Nghe</a>
+        <a href="javascript:void(0)" onclick="addToPlaylist('{{song.slug}}')" class="bg-color-02 btn-function"><i class="fa icon-add-playlist"></i> Playlist</a>
+        <!-- <a href="javascript:void(0)" onclick="downloadSong()" class="bg-color-03 btn-function"><i class="fa icon-download"></i> Tải</a> -->
+        <!-- <a href="javascript:void(0)" class="bg-color-05 btn-function"><i class="fa icon-mobile"></i> Nhạc chờ</a> -->
+        <!-- <a href="javascript:void(0)" class="bg-color-04 btn-function"><i class="fa icon-gift"></i> Chia sẻ</a> -->
+  		<!-- <img src="/images/img_14.jpg" width="143" height="30" alt=""/> -->
+      {{ include('@app/views/components/likeFacebook.twig',{'link':url('song/song-detail',{'slug':song.slug}) })}}
+  </div>
+
+  <div class="row">
+        <div class="col-sm-6 col-md-7">
+           {{ include('_lyric.twig',{'song':song}) }}
+           {{ include('_video.twig',{'video':videos}) }}
+
+             <div class="mdl-comment">
+               {{include('@app/views/components/commentFacebook.twig',{'link':url('song/detail',{'slug':song.slug})})}}
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-5">
+                {{ include('_related.twig',{'related':related}) }}
+                {{ include('_hot.twig',{'hots':hots}) }}
+        </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+    imageBlurSong = '{{ imageBlur }}';
+    currentSongQuality = '{{ selectQualityKey }}';
+    qualityPathSong = '{{ qualityPath }}';
+    songDetailDataEncode = '{{ songData }}';
+    lowSongPath = {{ lowSongPath | raw }};
+    dataTypeTopMenu = 'music';
+    isSongDetailPlaying = false;
+    // currentPagePjax = pjaxPageEnum.songDetail;
+</script>

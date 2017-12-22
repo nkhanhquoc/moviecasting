@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\widgets\Pjax;
 use yii\grid\GridView;
 use backend\models\Movie;
+use Yii;
 
 
 /* @var $this yii\web\View */
@@ -14,7 +15,6 @@ use backend\models\Movie;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'Đăng ký');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Admin'), 'url' => '#'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row menu-index">
@@ -28,7 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?= AwsBaseHtml::encode($this->title) ?>
                     </span>
                 </div>
-                
+                <div class="actions">
+                    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
+                        'modelClass' => 'Đăng ký',
+                    ]),
+                        ['create'], ['class' => 'btn btn-info btn-outline btn-circle btn-sm']) ?>
+                </div>
             </div>
 
             <div class="portlet-body">
@@ -44,6 +49,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             ['class' => 'yii\grid\SerialColumn'],
                             'castingName',
                             'name',
+                            'birth_year',
+                            'sodo',
                             [
                                 'attribute' => 'genre',
                                 'format' => 'raw', //raw, html
@@ -56,7 +63,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                                     'msisdn',
                                     'facebook',
-                                    'star',
+                            [
+                                 'attribute' => 'star',
+                                'format' => 'raw', //raw, html
+                                'content' => function($dataProvider) {
+                                    return Yii::$app->params['register_star'][$dataProvider['star']];
+                                }
+                            ],
                             [
                                 'attribute' => 'status',
                                 'format' => 'raw', //raw, html

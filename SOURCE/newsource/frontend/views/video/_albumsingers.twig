@@ -1,0 +1,19 @@
+{% if albumsSinger|length > 0 %}
+<div class="mdl-1 mdl-video-nominations">
+    <div class="title ellipsis">
+        <a href="javascript:void(0)" class="txt"> Albums cùng ca sĩ</a>
+    </div>
+<div class="row">
+        {% for val in albumsSinger %}
+          <div class="col-md-4 col-xs-4 item">
+              <a {{ ajax_url('playlist/detail',{'slug':val.slug})|raw }} class="image-play">
+                  <img width="100%" src="{{ val.image_path|imagePathThumb(171) }}">
+                  <i class="fa icon-play"></i>
+              </a>
+              <a {{ ajax_url('playlist/detail',{'slug':val.slug})|raw }} class="song-name ellipsis">
+                {{val.name}}</a>
+          </div>
+        {% endfor %}
+       </div>
+</div>
+{% endif %}

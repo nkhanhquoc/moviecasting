@@ -1,0 +1,84 @@
+<div class="col-sm-12 col-md-6 class col-sm-6">
+    	<div class="mdl-1 mdl-billboard modified-left">
+            <div class="title">
+              <a href="#" class="txt"> Việt Nam</a>
+            </div>
+              <!-- Nav tabs -->
+              <ul class="nav nav-pills" role="tablist">
+                <li class="active"><a href="#rank-song-vn" role="tab" data-toggle="tab">Bài hát</a></li>
+                <li><a href="#rank-video-vn" role="tab" data-toggle="tab">Video</a></li>
+                <li><a href="#rank-album-vn" role="tab" data-toggle="tab">Album</a></li>
+              </ul>
+              <div class="control-play-all">
+              	<a href="#" class="bg-color-01"> <i class="fa icon-play2"></i> Nghe tất cả</a>
+                <a href="#" class="bg-color-02"> <i class="fa icon-add-playlist"></i> Playlist</a>
+              </div>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="rank-song-vn">
+                    <div class="">
+
+                      {% for key,song in rankVnSong %}
+                        {% set artist=song|getSingerNameBySong %}
+                        {% set poster=val|getImagePathBySong %}
+                        <div class="media">
+                          <div class="media-left">
+                            <a href="javascript:void(0)">
+                              <img class="media-object" src="{{poster}}" width="48" alt="...">
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <a href="{{ url('song/song-detail', {'slug' : song.slug}) }}" class="song-name ellipsis">
+                              {{song.name}}</a>
+                            <p class="singer-name ellipsis"><a href="{{ url('song/song-detail', {'slug' : song.slug}) }}">{{artist}}</a></p>
+                          </div>
+                          <div class="media-right text-{{ key == 0 ? 'danger':(key == 1 ? 'success':(key == 2 ? 'primary':'')) }}">{{ key < 9 ? '0'~(key+1):key+1 }}</div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="rank-video-vn">
+                  <div class="">
+                    {% for key,video in rankVnVideo %}
+
+                      <div class="media">
+                        <div class="media-left">
+                          <a href="javascript:void(0)">
+                            <img class="media-object" src="{{ val.image_path|imagePathThumb(48) }}" width="48" alt="...">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <a href="{{ url('video/detail', {'slug' : video.slug}) }}" class="song-name ellipsis">
+                            {{ video.name }}</a>
+                          <p class="singer-name ellipsis">
+                            <a href="{{ url('video/detail', {'slug' : video.slug}) }}">
+                            {{ video.getSingerName() }}</a>
+                          </p>
+                        </div>
+                        <div class="media-right text-{{ key == 0 ? 'danger':(key == 1 ? 'success':(key == 2 ? 'primary':'')) }}">{{ key < 9 ? '0'~(key+1):key+1 }}</div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="rank-album-vn">
+                  <div class="">
+                    {% for key,val in rankVnAlbum %}
+                      <div class="media">
+                        <div class="media-left">
+                          <a href="javascript:void(0)">
+                            <img class="media-object" src="{{ val.image_path|imagePathThumb(48) }}" width="48" alt="...">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <a href="{{ url('playlist/detail', {'slug' : val.slug}) }}" class="song-name ellipsis">
+                            {{ val.name }}</a>
+
+                        </div>
+                        <div class="media-right text-{{ key == 0 ? 'danger':(key == 1 ? 'success':(key == 2 ? 'primary':'')) }}">{{ key < 9 ? '0'~(key+1):key+1 }}</div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>

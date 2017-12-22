@@ -25,6 +25,7 @@
         "2amigos/yii2-ckeditor-widget": "*",
         "yiisoft/yii2-imagine": "*",
         "yiisoft/yii2-redis": "*",
+        "yiisoft/yii2-twig": "~2.0.0",
         "kartik-v/yii2-widget-select2": "*",
         "aws/aws-sdk-php": "^2.8",
         "voskobovich/yii2-many-many-behavior": "*",

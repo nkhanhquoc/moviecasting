@@ -1,0 +1,74 @@
+<div class="col-sm-12 col-md-5">
+    <div class="mdl-1 mdl-billboard">
+        <div class="title">
+            <a href="#" class="txt"> BXH</a>
+        </div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills" role="tablist">
+            <li class="active"><a href="#home" role="tab" data-toggle="tab">Bài hát</a></li>
+            <li class=""><a href="#profile" role="tab" data-toggle="tab">Video</a></li>
+            <li class=""><a href="#messages" role="tab" data-toggle="tab">Playlist</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="scroll-pane">
+                  {% for key,song in songs %}
+                  {% set artist=song|getSingerNameBySong %}
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="{{ url('song/song-detail', {'slug' : song.slug}) }}">
+                                <img class="media-object" src="/images/4x4.png" width="48" alt="...">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <a href="{{ url('song/song-detail', {'slug' : song.slug}) }}" class="song-name ellipsis">{{ song.name }}</a>
+                            <p class="singer-name ellipsis"><a href="{{ url('song/song-detail', {'slug' : song.slug}) }}">{{artist}}</a></p>
+                        </div>
+                        <div class="media-right text-{{ key == 0 ? 'danger':(key == 1 ? 'success':(key == 2 ? 'primary':'')) }}">{{ key < 9 ? '0'~(key+1):key+1 }}</div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+              <div class="scroll-pane">
+                {% for key,song in songs %}
+                {% set artist=song|getSingerNameBySong %}
+                  <div class="media">
+                      <div class="media-left">
+                          <a href="{{ url('song/song-detail', {'slug' : song.slug}) }}">
+                              <img class="media-object" src="/images/4x4.png" width="48" alt="...">
+                          </a>
+                      </div>
+                      <div class="media-body">
+                          <a href="{{ url('song/song-detail', {'slug' : song.slug}) }}" class="song-name ellipsis">{{ song.name }}</a>
+                          <p class="singer-name ellipsis"><a href="{{ url('song/song-detail', {'slug' : song.slug}) }}">{{artist}}</a></p>
+                      </div>
+                      <div class="media-right text-{{ key == 0 ? 'danger':(key == 1 ? 'success':(key == 2 ? 'primary':'')) }}">{{ key < 9 ? '0'~(key+1):key+1 }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+              <div class="scroll-pane">
+                {% for key,song in songs %}
+                {% set artist=song|getSingerNameBySong %}
+                  <div class="media">
+                      <div class="media-left">
+                          <a href="{{ url('song/song-detail', {'slug' : song.slug}) }}">
+                              <img class="media-object" src="/images/4x4.png" width="48" alt="...">
+                          </a>
+                      </div>
+                      <div class="media-body">
+                          <a href="{{ url('song/song-detail', {'slug' : song.slug}) }}" class="song-name ellipsis">{{ song.name }}</a>
+                          <p class="singer-name ellipsis"><a href="{{ url('song/song-detail', {'slug' : song.slug}) }}">{{artist}}</a></p>
+                      </div>
+                      <div class="media-right text-{{ key == 0 ? 'danger':(key == 1 ? 'success':(key == 2 ? 'primary':'')) }}">{{ key < 9 ? '0'~(key+1):key+1 }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
