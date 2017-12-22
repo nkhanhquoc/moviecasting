@@ -32,7 +32,7 @@ use yii\helpers\Html;
             
             <?= $form->field($model, 'description')->widget(CKEditor::className(), [
                     'options' => ['rows' => 10],
-                    'preset' => 'basic'
+                    'preset' => 'full'
                 ]) ?>  
            
             <?= $form->field($model, 'status')->checkBox()?>      
