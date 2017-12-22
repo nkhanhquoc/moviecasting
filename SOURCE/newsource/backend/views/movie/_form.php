@@ -27,6 +27,7 @@ use yii\helpers\Html;
         <div class="form-body">
             <?= $form->field($model, 'name')->textInput(['maxlength' => 50]) ?>
             <?= Html::img($model['image_path'], ['width' => '60px']); ?>
+            <?= $form->field($model, 'hot')->checkBox()?>      
             <?= $form->field($model, 'image_path')->fileInput()?> 
             <?= $form->field($model, 'short_description')->textarea(['rows' => 2]) ?>  
             

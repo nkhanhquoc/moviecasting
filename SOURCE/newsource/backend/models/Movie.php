@@ -74,11 +74,14 @@ class Movie extends MovieBase {
 
     public function attributeLabels() {
         return [
-            'name' => 'Tên',
+            'name' => 'Tên Dự án',
             'type' => 'Loại',
             'short_description' => 'Mô tả ngắn',
             'description' => 'Mô tả',
-            'image_path' => 'Ảnh'
+            'image_path' => 'Ảnh',
+            'status' => 'Trạng thái',
+            'created_time' => 'Thời gian tạo',
+            'end_time' => 'Thời gian kết thúc',
         ];
     }
 

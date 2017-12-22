@@ -13,7 +13,7 @@ use backend\models\Movie;
 /* @var $searchModel backend\models\MenuSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Phim');
+$this->title = Yii::t('backend', 'Dự án');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Admin'), 'url' => '#'];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <div class="actions">
                     <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-                        'modelClass' => 'Phim',
+                        'modelClass' => 'Dự án',
                     ]),
                         ['create'], ['class' => 'btn btn-info btn-outline btn-circle btn-sm']) ?>
                 </div>
@@ -60,6 +60,16 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             'created_time',                           
                             'end_time',                           
+                              [
+                                'attribute' => 'hot',
+                                'format' => 'raw', //raw, html
+                                'content' => function($dataProvider) {
+                                switch($dataProvider['hot']){
+                                    case 1: return "HOT"; 
+                                    default: return "Bình thường"; 
+                                };
+                                }
+                            ],  
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
                     ]); ?>
