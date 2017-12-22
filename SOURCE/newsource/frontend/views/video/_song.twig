@@ -1,0 +1,39 @@
+<div class="mdl-1 mdl-song-nominations reset-padding">
+         <div class="title">
+           <a href="javascript:void(0)" class="txt"> Bài hát cùng ca sĩ</a>
+         </div>
+         <div class="scroll-pane horizontal-only">
+           {% for val in song %}
+               {% set artist=val|getSingerNameBySong %}
+               {% set poster=val|getImagePathBySong %}
+               {% set posterBlur=val|getImageBlurPathBySong %}
+               <div class="media">
+                 <div class="media-left">
+                   <a href="{{ url('song/song-detail', {'slug' : val.slug}) }}">
+                     <img class="media-object" src="{{poster}}" width="48" alt="...">
+                   </a>
+                 </div>
+                 <div class="media-body">
+                   <a href="{{ url('song/song-detail', {'slug' : val.slug}) }}" class="song-name ellipsis">{{val.name}}</a>
+                   <p class="singer-name ellipsis"><a href="{{ url('song/song-detail', {'slug' : val.slug}) }}">{{artist}}</a></p>
+                 </div>
+                 <div class="media-right">
+                   <div class="right-info right-info-2">
+                       <span class="viewer"><i class="fa icon-headphone"></i><br>{{ (val.view_number=='' or val.view_number is null)?'0':val.view_number|formatNumber }}</span>
+                       <span class="download"><i class="fa icon-download"></i><br>{{ (val.download_number=='' or val.download_number is null)?'0':val.download_number|formatNumber }}</span>
+                       <!-- <span class="download"><i class="fa icon-gift"></i><br>1523</span> -->
+                       <span data-target="#modal-popup" data-toggle="modal" class="link-more-mobile">
+                       <i class="fa icon-more"></i>
+                     </span>
+                   </div>
+                 </div>
+                 <div class="overlay">
+                   <a href="#" class="bg-color-01"><i class="fa icon-play2"></i></a>
+                   <a href="#" class="bg-color-02"><i class="fa icon-add-playlist"></i></a>
+                   <a href="#" class="bg-color-03"><i class="fa icon-download"></i></a>
+                   <a href="#" class="bg-color-04"><i class="fa icon-share"></i></a>
+                 </div>
+               </div>
+           {% endfor %}
+      </div>
+ </div>

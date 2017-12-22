@@ -1,0 +1,16 @@
+<div class="banner-02" style="background-image:url({{user.theme_path | imagePathThumb(1350,0,"member")}})">
+  <div class="container">
+    <div class="">
+        <img src="{{ user.image_path|imagePath }}" width="200" class="img-circle"/>
+        <form id="changeImageProfile" action="{{ url('profile') }}" enctype="multipart/form-data">
+          <div class="big-name"><h1>{{ user.fullname }}</h1></div>
+          <div>
+            <a href="javascript:void(0)" onclick="$('#avatarImage').click()" class="link">Đổi Avatar</a>
+            <a href="javascript:void(0)" onclick="$('#themeImage').click()" class="link">Đổi ảnh nền</a>
+          </div>
+          <input type="file" id="avatarImage" name="image_path">
+          <input type="file" id="themeImage" name="theme_path">
+        </form>
+    </div>
+  </div>
+</div>

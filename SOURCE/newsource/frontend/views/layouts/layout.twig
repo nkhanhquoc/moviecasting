@@ -1,0 +1,59 @@
+{{ use('frontend/widgets/AwsPjax') }}
+{{ use('frontend/assets/AppAsset') }}
+{{ register_app_asset() }}
+{{ begin_page() }}
+<!DOCTYPE html>
+<html lang="{{ app.language }}">
+    <head>
+        <meta charset="{{ app.charset }}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        {{ html.csrfMetaTags() | raw }}
+        <title>{{ html.encode(this.title) }}</title>
+        {{ head() }}
+        <!--}--><!--</script>--><!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+      <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=462996843754261";
+            fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        {{ begin_body() }}
+
+        {% include "@app/views/components/header.twig" %}
+
+        {{ aws_pjax_begin({
+            'id' : 'ajaxBodyContent',
+            'timeout' : 'false'
+        }) }}
+            {{ content | raw }}
+        {{ aws_pjax_end() }}
+
+        {% include "@app/views/components/footer.twig" %}
+
+        {% include "@app/views/components/dockedPlayer.twig" %}
+
+        {% include "@app/views/components/popups.twig" %}
+
+        {% include "@app/views/components/searchComp.twig" %}
+
+        {{ end_body() }}
+        <script>
+            {{ 0 | prefixJavascript | raw }}
+        </script>
+    </body>
+</html>
+
+{{ end_page() }}

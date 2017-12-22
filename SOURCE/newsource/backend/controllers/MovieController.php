@@ -123,7 +123,7 @@ class MovieController extends AppController{
 
 //           var_dump(Yii::$app->request->post());die;
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->upload() && $model->uploadBanner())
+            if ($model->upload())
             {
 //                $model->updateCategory();
                 $model->save();

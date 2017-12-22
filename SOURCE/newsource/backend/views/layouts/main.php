@@ -55,7 +55,7 @@ AppAsset::register($this);
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
                         <a class="text-logo logo-default" href="/">
-                            GROUPON <span>CMS</span>
+                            CASTING <span>CMS</span>
                         </a>
                         <div class="menu-toggler sidebar-toggler">
                             <span></span>
@@ -240,7 +240,7 @@ AppAsset::register($this);
             <!-- END CONTAINER -->
             <!-- BEGIN FOOTER -->
             <div class="page-footer">
-                <div class="page-footer-inner"> 2017 &copy; TTVAS - VTT
+                <div class="page-footer-inner"> 2017 &copy; OrionMedia
                 </div>
                 <div class="scroll-to-top">
                     <i class="icon-arrow-up"></i>

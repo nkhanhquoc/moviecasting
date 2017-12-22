@@ -1,0 +1,44 @@
+{{ include('_slide.twig')}}
+
+<div class="container">
+    <div class="row">
+        {{ include('_playlist.twig',{'playListHot':playListHot}) }}
+        {{ include('_song.twig',{'listSongHot':listSongHot}) }}
+    </div>
+
+    <div class="clearfix peer-line"></div>
+
+      {{ include('_video.twig',{'listVideoHot':listVideoHot}) }}
+
+    <div class="clearfix peer-line"></div>
+
+    <div class="row">
+        {{ include('_topic.twig',{'subject':subject}) }}
+
+        {{ include('_rank.twig',{'songs':rankSongs, 'vides':rankVideos, 'albums':rankAlbums}) }}
+    </div>
+
+    <div class="clearfix peer-line-02"></div>
+
+    <div class="row">
+        {{ include('_singer.twig',{'getListSingerHot':getListSingerHot})}}
+
+      {# {{ include('_article.twig',{'articles':articles}) }} #}  
+    </div>
+
+    <div class="clearfix peer-line"></div>
+
+    <div class="row">
+        <div class="mdl-1 mdl-download" align="center">
+            <div class="title">
+                Tải ứng dụng
+            </div>
+            <div class="content">
+                <p>Bạn có thể thưởng thức âm nhạc của mình ở mọi nơi, mọi lúc với ứng dụng Imuzik trên di động.</p>
+                <p><a href="#"><img src="/images/google.png"/></a> <a href="#"><img src="/images/ios.png"/></a> <a
+                            href="#"><img src="/images/windowphone.png"/></a></p>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,23 @@
+{% set listLen = subject|length %}
+{% if listLen >0 %}
+<div class="col-sm-12 col-md-7">
+        <div class="mdl-1 mdl-topic-highlight">
+          <div class="title">
+              <a {{ ajax_url('topic/index')|raw }} class="txt"> Chủ đề nổi bật</a>
+              <a {{ ajax_url('topic/index')|raw }} class="pull-right view-all"></a>
+          </div>
+          <div class="row row-carousel">
+          	  <div class="wrap-carousel">
+              <div class="owl-carousel">
+                {% for key,val in subject %}
+                  <a {{ ajax_url('topic/detail',{'slug':val.slug})|raw }}
+                    class="col-xs-12 {{ key == 0 ? 'col-sm-9 col-md-9':'col-sm-3 col-md-3' }}">
+                      <img width="100%" src="/images/4x4.png">
+                  </a>
+                {% endfor %}
+              </div>
+              </div>
+          </div>
+        </div>
+    </div>
+{% endif %}
