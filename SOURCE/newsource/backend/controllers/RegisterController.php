@@ -69,62 +69,54 @@ class RegisterController extends AppController {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-        $params = Yii::$app->request->post();
-        if($params){
+        if ($model->load(Yii::$app->request->post())) {
+            $params = Yii::$app->request->post();
             $star = $params['Register']['star'];
-            if ($star < 6 and $star > 0 && $model->uploadPortrait()) {
-                $model->save(false);
+            if ($star < 6 && $star > 0 && $model->uploadPortrait()) {
+                $model->save();
                 Yii::$app->session->setFlash('success', "Cập nhật thành công!");
                 return $this->render('update', [
                             'model' => $model,
                 ]);
             } else {
-                 Yii::$app->session->setFlash('error', "Cập nhật thất bại!");
+                Yii::$app->session->setFlash('error', "Cập nhật thất bại!");
                 return $this->render('update', [
                             'model' => $model,
                 ]);
-            }            
+            }
         }
         return $this->render('update', [
-                            'model' => $model,
-                ]);
+                    'model' => $model,
+        ]);
     }
-    
+
     /**
      * Creates a new Game model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Register();
         if ($model->load(Yii::$app->request->post())) {
-//            if ($_FILES["Register"]["name"]["outfit"]== null){
-//                $model->addError('image_path', 'Ảnh không được để trống.');
-//                return $this->render('create', [
-//                    'model' => $model,
-//                ]);
-//            }
-            if ($_FILES["Register"]["name"]["portrait"]== null){
+            if ($_FILES["Register"]["name"]["portrait"] == null) {
                 $model->addError('portrait', 'Ảnh chân dung không được để trống.');
                 return $this->render('create', [
-                    'model' => $model,
+                            'model' => $model,
                 ]);
-            }          
-            else{
+            } else {
                 if ($model->uploadPortrait()) {
-                    $model->save(false);
+                    $model->save();
                     Yii::$app->session->setFlash('success', "Thêm mới thành công!");
-                   
+
                     return $this->redirect(['update', 'id' => $model->id]);
                 }
                 return $this->render('create', [
-                'model' => $model,
-            ]);
+                            'model' => $model,
+                ]);
             }
         } else {
             return $this->render('create', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }

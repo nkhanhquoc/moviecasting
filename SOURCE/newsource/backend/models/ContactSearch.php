@@ -47,6 +47,10 @@ class ContactSearch extends \backend\models\Contact{
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
+        
+        if ($params['ContactSearch']['status'] != null) {
+            $query->andWhere(['=','status',$params['ContactSearch']['status']]);
+        }
 //     
         return $dataProvider;
     }

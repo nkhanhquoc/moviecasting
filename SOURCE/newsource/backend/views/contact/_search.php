@@ -19,6 +19,11 @@ use backend\models\Movie;
     ]); ?>   
 
     <?= $form->field($model, 'name') ?>
+     <?= $form->field($model, 'status')->dropDownList([
+                1=>"Đã xem",
+                0=>"Chưa xem"
+               ],
+             ['prompt'=>'Tất cả']) ?>
    
     <div class="form-group">
         <lablel class="control-label">Ngày tạo từ</lablel>

@@ -73,4 +73,19 @@ class ContactController extends AppController{
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    
+     /**
+     * Updates an existing Menu model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param  integer $id
+     * @return mixed
+     */
+    public function actionUpdate($id) {
+        $model = $this->findModel($id);
+       
+            return $this->render('view', [
+                'model' => $model,
+            ]);
+        
+    }
 }

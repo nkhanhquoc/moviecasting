@@ -41,7 +41,7 @@ class Register extends RegisterBase {
     public function rules() {
         return [
             [['name','casting_id','genre','birth_year','msisdn','location','weight','height'
-                ,'chest','waist','butt','facebook'], 'required'],            
+                ,'chest','waist','butt','facebook', 'outfit','product','star'], 'required'],            
             [['genre', 'msisdn', 'weight','height', 'chest', 'waist','butt'], 'integer']           
         ];
     }
