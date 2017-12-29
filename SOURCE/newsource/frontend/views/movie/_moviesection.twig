@@ -1,0 +1,35 @@
+{# empty Twig template #}
+
+<section class="section">
+        <div class="the-title clearfix">
+                <h4>Các Phim khác</h4>
+        </div>
+        <ul class="row articles-list list-unstyled">
+            {% for key,val in normal %}
+                <li class="col-md-4 col-sm-6">
+                        <article class="article-item">
+                                <div class="thumb-img">
+                                        <a href="{{ url('movie/index',{'id':val.id })}}">
+                                                <img src="{{ val.imagepath }}" alt="{{val.name}}" />
+                                        </a>
+                                </div>
+                                <div class="article-summary">
+                                        <h4 class="article-title"><a href="{{ url('movie/index',{'id':val.id })}}">{{ val.name }}</a></h4>
+                                        <div class="summary">
+                                            <p>{{ val.description }}</p></div>
+                                        <div class="article-meta">
+                                                <i class="icons icon-cam"></i> 
+                                                 {% if val.type == 1 %}
+                                                    {{'Phim'}}
+                                                    {% else %}
+                                                        {{'Quảng cáo'}}
+                                                    {% endif %}
+                                                <br />
+                                                <i class="icons icon-person"></i> {{ val.join }} người tham gia &nbsp;&nbsp; <i class="icons icon-clock"></i> Còn {{val.leftdate}} ngày
+                                        </div>
+                                </div>
+                        </article>
+                </li>
+                {% endfor %}
+        </ul>
+</section>

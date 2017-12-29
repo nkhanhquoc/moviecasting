@@ -24,14 +24,15 @@ $config = [
                     // Array of twig options:
                     'options' => [
                         'auto_reload' => true,
+                        
                     ],
                     'globals' => [
                         'frontend_assets' => 'frontend\assets\AppAsset',
                         'html' => '\yii\helpers\Html'
                     ],
-                    'extensions' => [
-                        ['yii2-twig', new \frontend\components\TwigExtension()]
-                    ],
+//                    'extensions' => [
+//                        ['yii2-twigg', new \frontend\components\TwigExtension()]
+//                    ],
                 ],
             ],
         ]

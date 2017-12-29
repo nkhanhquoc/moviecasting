@@ -63,7 +63,8 @@ class Images {
             $image->saveAs($path);
             $result = array(
                 'errorCode' => 0,
-                'file' => $path . $fileName
+                'file' => $path . $fileName,
+                'fileFronted' =>  '/' . date("Ymd") . '/' . $fileName
             );
         }
         return $result;

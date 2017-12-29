@@ -27,6 +27,8 @@ class AppController extends Controller
         if ($request->isPjax || $request->getQueryParam('_pjax') || $request->isAjax) {
             $this->layout = false;
         }
+        Yii::$app->session->set('register_message', '');
+        Yii::$app->session->set('contact_message', '');
         return parent::beforeAction($action);
     }
 
@@ -34,6 +36,7 @@ class AppController extends Controller
     {
         $exception = Yii::$app->errorHandler->exception;
         if ($exception !== null) {
+            var_dump($exception);die;
             return $this->render('error.twig', ['exception' => $exception]);
         }
     }

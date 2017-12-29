@@ -1,0 +1,110 @@
+{# empty Twig template #}
+<form class="form-horizontal" method="POST" enctype="multipart/form-data" id="register-form">
+    <input type="hidden" name="Register[casting_id]" value="{{casting.id}}">
+    <input type="hidden" name="{{csrfParam}}" value="{{csrfToken}}">
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Họ và tên</label>
+            <div class="col-sm-9">
+                    <input type="text" id="registername" name="Register[name]" class="form-control validate[required]" />
+            </div>
+    </div>
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Giới tính</label>
+            <div class="col-sm-2">
+                    <select class="form-control" name="Register[genre]">
+                            <option value="1">Nam</option>
+                            <option value="2">Nữ</option>
+                            <option value="3">Khác</option>
+                    </select>
+            </div>
+            <label class="col-sm-2 control-label">Năm sinh</label>
+            <div class="col-sm-2">
+                    <select class="form-control" name="Register[birth_year]">
+                            <option value="1990">1990</option>
+                            <option value="1991">1991</option>
+                            <option value="1992">1992</option>
+                    </select>
+            </div>
+    </div>
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Điện thoại</label>
+            <div class="col-sm-3">
+                    <input type="text" class="form-control validate[required]" name="Register[msisdn]"/>
+            </div>
+            <label class="col-sm-2 control-label">Khu vực</label>
+            <div class="col-sm-2">
+                    <select class="form-control" name="Register[location]">
+                            <option value="Hà Nội">Hà Nội</option>
+                            <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+                            <option value="Huế">Huế</option>
+                            <option value="Đà Nẵng">Đà Nẵng</option>
+                    </select>
+            </div>
+    </div>
+   {# <div class="form-group">
+            <label class="col-sm-2 control-label">Ngoại hình</label>
+            <div class="col-sm-9">
+                    <input type="text" class="form-control" name="Register[outfit]"/>
+            </div>
+    </div>#}
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Chiều cao</label>
+            <div class="col-sm-2">
+                    <input type="text" class="form-control validate[required]" name="Register[height]"/>
+            </div>
+            <label class="col-sm-2 control-label">Cân nặng</label>
+            <div class="col-sm-2">
+                    <input type="text" class="form-control validate[required]" name="Register[weight]"/>
+            </div>
+    </div>
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Số đo</label>
+            <div class="col-sm-9">
+                    <ul class="list-unstyled list-inline">
+                            <li>
+                                    <input type="text" class="form-control validate[required]" placeholder="Ngực" name="Register[chest]"/>
+                            </li>
+                            <li>
+                                    <input type="text" class="form-control validate[required]" placeholder="Bụng" name="Register[waist]"/>
+                            </li>
+                            <li>
+                                    <input type="text" class="form-control validate[required]" placeholder="Mông" name="Register[butt]"/>
+                            </li>
+                    </ul>
+            </div>
+    </div>
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Hình ảnh</label>
+            <div class="col-sm-9">
+                    <div class="photo-upload">
+                            <input type="file" name="Register[portrait]" validate[required]/>
+                            <button class="btn btn-default upload-file">Chọn ảnh</button>
+                            <div class="upload-thumb"></div>
+                    </div>
+            </div>
+    </div>
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Link facebook</label>
+            <div class="col-sm-9">
+                    <input type="text" class="form-control validate[required]" name="Register[facebook]"/>
+            </div>
+    </div>
+    <div class="form-group">
+            <label class="col-sm-2 control-label">Link sản phẩm</label>
+            <div class="col-sm-9 insert-links" id="product-add">
+                    <div class="input-group">
+                            <input type="text" class="form-control validate[required]" name="Register[product][]"/>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default" type="button">Thêm</button> </span>
+                    </div>
+                    <div class="links-list">
+
+                    </div>
+            </div>
+    </div>
+    <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+                    <button type="submit" class="btn btn-danger">ĐĂNG KÝ</button>
+            </div>
+    </div>
+</form>

@@ -1,95 +1,30 @@
-<div class="header navbar-fixed-top-mobile">
-    <div class="container">
-        <div class="row">
-            <nav class="navbar navbar-default navbar-imuzik">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/"><img alt="Brand" src="/images/chplay.png" height="43"></a>
-              <span class="search-mobile btn-search">
-              	<i class="fa icon-search2"></i>
-              </span>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="/">Trang chủ</a></li>
-                        <li><a href="{{url('song/index',{'slug':'song-hot'})}}">Bài hát</a></li>
-                        <li><a href="{{url('video/index',{'slug':'video-hot'})}}">Video</a></li>
-                        <li><a href="{{url('playlist/list',{'slug':'playlist-hot'}) }}">Playlist</a></li>
-                        <li><a href="{{url('singer/index',{'slug':'ca-si-hot'}) }}">Ca sĩ</a></li>
-                        <li><a href="{{url('topic/index') }}">Chủ đề</a></li>
-                        <li><a href="{{url('radio/index') }}">Radio</a></li>
-                        <li><a href="{{url('rank/index') }}">BXH</a></li>
-                    </ul>
-                    <form class="navbar-form navbar-left">
-                        <div class="input-group">
-                  <span class="input-group-addon">
-                    <button type="submit" class="btn btn-default"><i class="fa icon-search"></i></button></span>
-                            <input type="text" class="form-control" placeholder="Tìm kiếm">
-                        </div>
-                        <div class="box-search-suggess-web">
-                            <ul id="contentSuggess">
-                                <li>
-                                    <i class="icon-music-note"></i>
-                                    <a href="#" class="txt-song ellipsis">Nếu em được lựa chọn</a>
-                                    <span>-</span>
-                                    <a href="#" class="txt-singer">Lệ quyên</a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-film"></i>
-                                    <a href="#" class="txt-song">Nếu em được lựa chọn</a>
-                                    <span>-</span>
-                                    <a href="#" class="txt-singer">Lệ quyên</a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-play-circle"></i>
-                                    <a href="#" class="txt-song">Nếu em được lựa chọn</a>
-                                    <span>-</span>
-                                    <a href="#" class="txt-singer">Lệ quyên</a>
-                                </li>
-                                <li>
-                                    <i class="fa icon-headphone"></i>
-                                    <a href="#" class="txt-song">Nếu em được lựa chọn</a>
-                                    <span>-</span>
-                                    <a href="#" class="txt-singer">Lệ quyên</a>
-                                </li>
-                                <li>
-                                    <i class="glyphicon glyphicon-cd"></i>
-                                    <a href="#" class="txt-song">Nếu em được lựa chọn</a>
-                                    <span>-</span>
-                                    <a href="#" class="txt-singer">Lệ quyên</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm" class="user">
-                                <i class="fa icon-user"></i></a>
-                        </li>
-                        <!--<li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                              User_007<span class="caret"></span>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                          </ul>
-                        </li>-->
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </nav>
-        </div>
-    </div>
-</div>
+<div id="header">
+		<div id="main-nav">
+			<nav class="navbar navbar-default">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</button>
+						<h1 class="logo">
+							<a href="/"><img src="/img/logo.png" alt="#" /></a>
+						</h1>
+					</div>
+			
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-navbar-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/">Trang chủ</a></li>
+							<li><a href="{{ url('dang-ky') }}">Casting</a></li>
+							<li><a href="#">Tin tức</a></li>
+							<li><a href="{{ url('lien-he')}}">Liên hệ</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container -->
+			</nav>
+		</div><!-- /#main-nav -->
+	</div>

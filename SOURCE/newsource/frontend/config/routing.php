@@ -3,7 +3,10 @@
 return [
     //home
     '/' => '/site/index',
-    'login' => '/user/login',
-    'write-log-album/<slug>' => 'playlist/write-log-album',
-    'write-log-song/<slug>' => 'song/write-log-song',
+    'du-an/<id>' => '/movie/index',
+    'dang-ky/<id>' => '/register/index',
+    'dang-ky' => '/register/reg',
+    'lien-he'=>'/contact/index',
+    'tin-tuc' =>'/news/index',
+    'tin-chi-tiet/<id>' => '/news/detail'
 ];

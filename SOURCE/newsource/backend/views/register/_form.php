@@ -51,8 +51,10 @@ use kartik\date\DatePicker;
             <?= $form->field($model, 'chest')->textInput(['maxlength' => 50]) ?>
             <?= $form->field($model, 'waist')->textInput(['maxlength' => 50]) ?>
             <?= $form->field($model, 'butt')->textInput(['maxlength' => 50]) ?>
+            
             <?= Html::img($model['portrait'], ['width' => '60px']); ?>
             <?= $form->field($model, 'portrait')->fileInput()?>
+            
             <?= $form->field($model, 'facebook')->textInput(['maxlength' => 50]) ?>
             <?= $form->field($model, 'product')->textarea(['rows'=>10]) ?>
             <?= $form->field($model, 'status')->checkBox() ?>

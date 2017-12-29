@@ -3,7 +3,7 @@
 return [
     'css_path' => 'http://192.168.146.252:9501/',
     'js_path' => 'http://192.168.146.252:9501/',
-    'media_path' => 'http://192.168.146.252:9501/uploads',
+    'media_path' => 'http://127.0.0.1:8003/uploads',
     'upload_prefix' => '/media1',
     'album_default_media_path' => 'http://192.168.146.252:9501/images/album_default.png',
     'video_default_media_path' => 'http://192.168.146.252:9501/images/video_default.png',
@@ -111,21 +111,6 @@ return [
     'limit_genre_rbt' => 100,
     'genre_id_playlist_new' => 6,
     'list_song_rbt' => 5,
-    'auto_select_video' => ['1080p', '720p', '480p', '360p'],
-    'default_select_video' => '1080p',
-    'auto_select_song' => ['500kbs', '320kbs', '256kbs', '128kbs'],
-    'default_select_song' => '500kbs',
-    'quality_video' => [
-        '1080p' => 'FHD',
-        '720p' => 'HD',
-        '480p' => '',
-        '360p' => '',
-    ],
-    'quality_song' => [
-        '500kbs' => 'Lossless',
-        '320kbs' => '320kbs',
-        '128kbs' => '128kbs',
-    ],
     'limit_topic_detail_song' => 40,
     'captcha' => [
         'class' => 'common\libs\WapCaptcha',
@@ -142,14 +127,8 @@ return [
 
         ]
     ],
-    'lock_fail_check_time' => 60,
-    'lock_fail_time' => 10,
-    'streaming_memcache_servers' => [
-        [
-            'host' => '10.58.50.10',
-            'port' => 11211,
-        ]
+    'upload_dir' =>[
+        'register' => '\upload\images\register',
     ],
-    'streaming_media_token_name' => 'imuzik4g-token',
-    'streaming_memcache_duration' => 43200,
+
 ];

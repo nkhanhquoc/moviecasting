@@ -1,0 +1,77 @@
+{# empty Twig template #}
+<div class="top-project">
+        <div class="header-line">
+                <span class="text-uppercase">Dự án tiêu biểu</span>
+        </div>
+        <div class="top-project-content">
+                <div class="top-project-banner" style="background-image: url({{'\''~movie.imagepath~'\''}});">
+                        <img src="{{movie.imagepath}}" alt="" />
+                </div>
+                <div class="top-project-infos">
+                        <ul class="list-unstyled text-center">
+                                <li>
+                                        <strong>{{ movie.join }}</strong>
+                                        <span>Diễn viên</span>
+                                </li>
+                                <li>
+                                        <strong>{{movie.join}}</strong>
+                                        <span>người đăng ký</span>
+                                </li>
+                                <li>
+                                        <strong>{{movie.leftdate}}</strong>
+                                        <span>ngày nữa</span>
+                                </li>
+                        </ul>
+                </div>
+        </div>
+</div>
+<section class="section">
+<div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+                <article class="article">
+                        <div class="article-title clearfix">
+                                <h2 class="the-title text-uppercase">{{movie.name}}</h2>
+                        </div>
+                        <div class="article-content clearfix">
+                                <p>{{ movie.short_description}}</p>
+                        </div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#actors" aria-controls="actors" role="tab" data-toggle="tab">Nhân vật cần tuyển</a></li>
+                                <li role="presentation"><a href="#infos-detail" aria-controls="infos-detail" role="tab" data-toggle="tab">Thông tin chi tiết</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="actors">
+                                        <ul class="articles-list list-unstyled on-row-list">
+                                            {% for key,val in casting %}
+                                                <li>
+                                                        <article class="article-item button-right">
+                                                                <div class="thumb-img">
+                                                                        <a href="javascript:void(0)">
+                                                                                <img src="{{val.imagepath}}" alt="" />
+                                                                        </a>
+                                                                </div>
+                                                                <div class="article-summary">
+                                                                        <h4 class="article-title"><a href="javascript:void(0)">{{val.name}}</a></h4>
+                                                                        <div class="summary"><p>{{val.description}}</p></div>
+                                                                </div>
+                                                                <div class="button-block">
+                                                                        <a href="{{url('register/index',{ 'id':val.id })}}" class="btn btn-danger">Đăng ký</a>
+                                                                </div>
+                                                        </article>
+                                                </li>
+                                            {% endfor %}    
+                                        </ul>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="infos-detail">
+                                        <div class="article-content clearfix">
+                                                {{ movie.description }}
+                                        </div>
+                                </div>
+                        </div>
+                </article>
+        </div>
+</div>
+</section>

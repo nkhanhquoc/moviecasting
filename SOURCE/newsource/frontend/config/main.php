@@ -15,8 +15,8 @@ return [
     'defaultRoute' => 'site/index',
     'components' => [
         'user' => [
-            'identityClass' => 'frontend\models\Member',
-            'enableAutoLogin' => false,
+//            'identityClass' => 'frontend\models\Member',
+//            'enableAutoLogin' => false,
             'identityCookie' => [
                 'name' => '_frontendIdentity',
                 'httpOnly' => true,
@@ -47,20 +47,7 @@ return [
                     'logVars' => [],
                     'logFile' => '@logs/frontend/queries.log',
                 ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['info'],
-                    'categories' => ['mobile'],
-                    'logVars' => [null],
-                    'logFile' => '@logs/frontend/mobile.log',
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['info'],
-                    'categories' => ['charge'],
-                    'logVars' => [null],
-                    'logFile' => '@logs/frontend/charge.log',
-                ],
+                
             ],
         ],
         'errorHandler' => [
@@ -69,7 +56,7 @@ return [
         'urlManager' => [
             'class' => 'yii\web\UrlManager',
             // Disable index.php
-            'showScriptName' => true,
+            'showScriptName' => false,
             // Disable r= routes
             'enablePrettyUrl' => true,
             //chi cho phep chay cac pretty url

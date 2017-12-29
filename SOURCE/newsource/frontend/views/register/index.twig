@@ -1,0 +1,43 @@
+{# empty Twig template #}
+<script>
+ {% if app.session.get('register_message') != "" %}
+        alert("{{ app.session.get('register_message') }}");       
+   {% endif %}
+</script>
+<div id="main">
+    <div class="container clearfix">
+        <div class="main-content">
+            <section class="section">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="form-wrapper register-form">
+                            <h1 class="the-title">Đăng ký casting</h1>
+                            <section class="section">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                            <div class="avatar">
+                                                <img src="{{ casting.imagepath}}" alt="" /></div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h3 class="the-title">{{ casting.name }}</h3>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                    <p>{{ casting.description }}</p>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                    <a href="#" class="btn btn-dark btn-block">Chọn nhân vật khác</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            {{ include('_form.twig',{'casting':casting, 'csrfParam':csrfParam, 'csrfToken':csrfToken}) }}                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

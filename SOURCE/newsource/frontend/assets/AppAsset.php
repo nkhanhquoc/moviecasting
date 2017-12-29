@@ -19,33 +19,22 @@ class AppAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/bootstrap.min.css',
-        'css/imuzik.css',
-        'css/jquery.mmenu.css',
-        'css/jquery.jscrollpane.css',
-        'css/owl.carousel.min.css',
-        'css/font-awesome.css',
-        'css/coder-update.css',
+        'css/owl.carousel.css',
+        'css/owl.theme.css',
+        'css/styles.css',
+        'css/validationEngine.jquery.css'
     ];
     public $js = [
-        'js/jquery.mousewheel.js',
-        'js/jquery.mmenu.min.js',
-        'js/jQuery.base64.js',
-        'js/jquery.rotate.js',
-        'js/bootstrap.min.js',
-        'js/bootstrap-select.js',
-        'js/jscrollpane.min.js',
-        'js/owl.carousel.min.js',
-        'js/imuzik.js',
-        'js/nouislider/nouislider.min.js',
-        'js/jquery.jplayer.js',
-        'js/jplayer.playlist.js',
-        'js/imuzikPlayer.js',
-        'js/imuzikVideoPlayer.js',
-        // 'js/imuzikCrbtPlayer.js',
-        'js/imuzik-custom.js',
-        'js/share.js',
-        'js/song.js',
+        'libs/js/jquery.min.js',
+        'libs/bootstrap-3.3.5/js/bootstrap.min.js',
+        'libs/js/jquery.cycle2.min.js',
+        'libs/js/moment-with-locales.js',
+        'libs/js/bootstrap-datetimepicker.min.js',
+        'libs/js/selectize.min.js',        
+        'js/owl.carousel.js',
+        'js/jquery.validationEngine-vi.js',
+        'js/jquery.validationEngine.js',
+        'js/main.js?v=1.1'
     ];
     public $depends = [
         'yii\web\JqueryAsset',

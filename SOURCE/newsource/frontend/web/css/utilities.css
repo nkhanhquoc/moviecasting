@@ -1,0 +1,38 @@
+/* CSS  Utilities */
+.hide {
+    display: none;
+}
+.fll {
+	float: left;
+}
+.flr {
+	float: right;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+.hide-text {
+    text-indent: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1;
+}

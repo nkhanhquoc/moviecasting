@@ -1,0 +1,27 @@
+{# empty Twig template #}
+<div id="main">
+    <div class="main-content">
+        <div class="container">
+            <section class="section">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <article class="article">
+                            <div class="article-title clearfix">
+                                <div class="share-social pull-right"><img src="{{news.imagepath}}" /></div>
+                                <h2 class="the-title">{{news.title}}</h2>
+                            </div>
+                            <div class="article-content clearfix">
+                                {{news.content}}
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            {{ include('_others.twig',{'others':others})}}
+
+
+            <div class="text-center"><a href="#" class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+        </div>
+    </div>
+</div>

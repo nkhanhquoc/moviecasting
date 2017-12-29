@@ -5,18 +5,14 @@ return [
     'components' => [
         'i18n' => [
             'translations' => [
-                'api*' => [
+                'frontend*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
                 ],
                 'backend*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
-                ],
-                'roxy*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/messages',
-                ],
+                ],                
             ],
         ],
         'db' => [
