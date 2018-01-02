@@ -126,5 +126,9 @@ class AjaxController extends Controller
         }
         return [];
     }
+    
+    public function getMoreMovie(){
+        $page = Yii::$app->request->get('page');
+    }
 
 }

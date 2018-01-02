@@ -5,7 +5,8 @@
                 <div class="the-title clearfix">
                         <h4>Dự án khác</h4>
                 </div>
-                <ul class="row articles-list list-unstyled">
+                <ul class="row articles-list list-unstyled" id="index-list-container">
+                    <input type="hidden" value="{{page}}" id="index-page">
                     {% for key,val in normal %}
                         <li class="col-md-4 col-sm-6">
                                 <article class="article-item">
@@ -36,6 +37,7 @@
                     {% endfor %}    
                 </ul>
         </section>
-        <div class="text-center"><a href="javascript:void(0)" class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+        <div class="text-center">
+            <a href="javascript:void(0)" onclick="loadMore('/index/more-view/','index-list-container','index-page')" class="btn btn-dark btn-load-more">XEM THÊM</a></div>
     </div>
 </div>

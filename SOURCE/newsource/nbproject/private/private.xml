@@ -3,22 +3,45 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/RegisterController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/SiteController.php</file>
-            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/site/_playlist.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/news/index.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/news/detail.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/ContactController.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/register/_form.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/views/casting/_form.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/register/index.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/components/header.twig</file>
-            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/site/_slide.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/News.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/Movie.php</file>
-            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/PlaylistController.php</file>
-            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/web/index.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/config/params.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/config/params.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/site/_main.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/assets/AppAsset.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/config/routing.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/contact/index.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/movie/_detail.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/Register.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/controllers/CastingController.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/NewsController.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/AppController.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/models/Register.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/news/_others.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/config/params-local.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/views/register/_form.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/models/Casting.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/site/_slide.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/config/params-local.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/Contact.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/common/libs/Images.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/web/index.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/site/home.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/config/main-local.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/layouts/layout.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/Casting.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/components/TwigExtension.php</file>
-            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/site/homePage.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/MovieController.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/web/js/main.js</file>
         </group>
     </open-files>
 </project-private>

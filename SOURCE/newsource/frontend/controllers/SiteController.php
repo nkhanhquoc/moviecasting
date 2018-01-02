@@ -10,6 +10,7 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\Movie;
+use yii\data\Pagination;
 
 class SiteController extends AppController
 {
@@ -36,11 +37,39 @@ class SiteController extends AppController
         foreach($hot as $h){
             $arrHot[] = $h->id;
         }
-        $normal = Movie::getNormal($arrHot);
+        $limit = Yii::$app->params['page_movie'];
+        $normal = Movie::getNormal($arrHot,$limit);
         return $this->render('home.twig',[
             'hot'=>$hot,
-            'normal' =>$normal
+            'normal' =>$normal,
+            'page' =>2
         ]);
+    }
+    
+    public function actionGetMore() {
+        $this->layout = false;
+        $page = Yii::$app->getRequest()->getQueryParam('page');
+        $hot = Movie::getHot();
+        $arrHot = array();
+        foreach($hot as $h){
+            $arrHot[] = $h->id;
+        }
+        $movie = Movie::getMoreMovie($arrHot,false);
+        $limit = Yii::$app->params['page_movie'];
+        if (!$page)
+            $page = 1;
+        $pages = new Pagination(['totalCount' => count($movie)]);
+        $pages->setPage($page - 1);
+        $pages->setPageSize($limit);
+        $listMore = array_slice($movie, ($page - 1) * $limit, $limit);
+        $text = $this->render('/movie/_listmore.twig', [
+                    'normal' => $listMore
+        ]);
+        $arrData = array(
+            'text'=>$text,
+            'page'=>$page+1
+        );
+        return json_encode($arrData);
     }
 
 }

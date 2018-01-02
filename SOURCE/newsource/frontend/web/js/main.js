@@ -57,8 +57,17 @@
 
 }(jQuery, window));
 
-$().ready(function() {
+$().ready(function () {
     $('#register-form').validationEngine();
     $('#contact-form').validationEngine();
-    
+
 });
+
+function loadMore(url, container, idpage) {
+    var page = $('#' + idpage).val();
+    $.get(url + page, function (data, status) {
+        var json = JSON.parse(data);
+        $('#'+idpage).val(json.page);
+        $('#'+container).append(json.text);
+    });
+}

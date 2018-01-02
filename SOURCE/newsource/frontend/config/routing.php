@@ -8,5 +8,7 @@ return [
     'dang-ky' => '/register/reg',
     'lien-he'=>'/contact/index',
     'tin-tuc' =>'/news/index',
-    'tin-chi-tiet/<id>' => '/news/detail'
+    'tin-chi-tiet/<id>' => '/news/detail',
+    'movie/more-view/<removeid>/<page>' => '/movie/get-more',
+    'index/more-view/<page>' => '/site/get-more'
 ];

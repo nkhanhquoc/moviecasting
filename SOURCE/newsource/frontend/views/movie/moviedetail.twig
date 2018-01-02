@@ -3,8 +3,8 @@
 		<div class="main-content">
 			<div class="container">
 				{{include('_detail.twig',{'movie':movie,'casting':casting})}}
-				{{include('_moviesection.twig')}}
-				<div class="text-center"><a href="#" class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+				{{include('_moviesection.twig',{'removeid':movie.id,'normal':normal,'page':page})}}
+				
 			</div>
 		</div>
 	</div>
