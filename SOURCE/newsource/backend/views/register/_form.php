@@ -44,7 +44,6 @@ use kartik\date\DatePicker;
     ]) ?>
             <?= $form->field($model, 'msisdn')->textInput(['maxlength' => 50]) ?>
             <?= $form->field($model, 'location')->textInput(['maxlength' => 50]) ?>
-             <?= $form->field($model, 'outfit')->textInput(['maxlength' => 255]) ?>
             
             <?= $form->field($model, 'height')->textInput(['maxlength' => 4]) ?>
             <?= $form->field($model, 'weight')->textInput(['maxlength' => 4]) ?>
@@ -54,6 +53,10 @@ use kartik\date\DatePicker;
             
             <?= Html::img($model['portrait'], ['width' => '60px']); ?>
             <?= $form->field($model, 'portrait')->fileInput()?>
+            <?= Html::img($model['portrait_2'], ['width' => '60px']); ?>
+            <?= $form->field($model, 'portrait_2')->fileInput()?>
+            <?= Html::img($model['portrait_3'], ['width' => '60px']); ?>
+            <?= $form->field($model, 'portrait_3')->fileInput()?>
             
             <?= $form->field($model, 'facebook')->textInput(['maxlength' => 50]) ?>
             <?= $form->field($model, 'product')->textarea(['rows'=>10]) ?>

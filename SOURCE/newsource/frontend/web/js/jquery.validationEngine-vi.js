@@ -37,7 +37,7 @@
                     "alertText": "* Tối đa ",
                     "alertText2": " số ký tự được cho phép"
                 },
-				"groupRequired": {
+		"groupRequired": {
                     "regex": "none",
                     "alertText": "* Bạn phải điền một trong những trường sau"
                 },

@@ -1,0 +1,13 @@
+{# empty Twig template #}
+
+<section class="section">
+        <div class="the-title clearfix">
+                <h4>Các Phim khác</h4>
+        </div>
+        <ul class="row articles-list list-unstyled" id="list-movie-container">
+            <input type="hidden" value="{{page}}" id="movie-list-page">
+            {{include('_listmore.twig',{'normal':normal})}}
+        </ul>
+            <div class="text-center">
+                <a href="javascrip:void(0)" onclick="loadMore('/movie/more-view/{{removeid}}/','list-movie-container','movie-list-page')" id="movie-more-button" class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+</section>

@@ -16,4 +16,12 @@ class News extends NewsBase{
     function getImagepath(){
         return Yii::$app->params['media_path'].$this->image_path;
     }
+    
+    public static function getMoreNews($removeid, $isHot = false) {
+        $query = News::find()
+                ->where(['status' => 1])
+                ->andWhere(['not in', 'id', $removeid])
+                ->orderBy('id desc');        
+        return $query->all();
+    }
 }

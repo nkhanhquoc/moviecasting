@@ -1,0 +1,21 @@
+{% if listRelated|length > 0 %}
+    <div class="mdl-1 mdl-video-nominations">
+              <div class="title ellipsis">
+                  <a href="javascript:void(0)" class="txt"> Playlists liên quan</a>
+              </div>
+				<div class="row">
+               	 <div class="owl-carousel">
+                   {% for val in listRelated %}
+                     <div class="col-sm-4 col-xs-12 col-md-4 item">
+                         <a {{ ajax_url('playlist/detail',{'slug':val.slug})|raw }} class="image-play">
+                             <img width="100%" src="{{ val.image_path|imagePathThumb(116) }}">
+                             <i class="fa icon-play"></i>
+                         </a>
+                         <a href="{{ ajax_url('playlist/detail',{'slug':val.slug})|raw }}" class="song-name ellipsis">
+                           {{val.name}}</a>
+                     </div>
+                   {% endfor %}
+                </div>
+             </div>
+		  </div>
+{% endif %}

@@ -41,7 +41,7 @@ class Register extends RegisterBase {
     public function rules() {
         return [
             [['name','casting_id','genre','birth_year','msisdn','location','weight','height'
-                ,'chest','waist','butt','facebook', 'outfit','product','star'], 'required'],            
+                ,'chest','waist','butt','facebook', 'product','star'], 'required'],            
             [['genre', 'msisdn', 'weight','height', 'chest', 'waist','butt'], 'integer']           
         ];
     }
@@ -61,6 +61,8 @@ class Register extends RegisterBase {
             'waist' => 'Vòng hai',
             'butt' => 'Vòng ba',
             'portrait' => 'Chân dung',
+            'portrait_2' => 'Chân dung',
+            'portrait_3' => 'Chân dung',
             'facebook' => 'Facebook',
             'product' => 'Sản phẩm',
             'star' => 'Đánh giá',
@@ -134,7 +136,7 @@ class Register extends RegisterBase {
         }
     }
     
-    public function uploadPortrait() {
+    public function uploadPortrait($attr) {
         $structure = 'register';
         $struc_path = Yii::getAlias('@webroot') . '/' . Yii::$app->params['upload_dir'][$structure];
 
@@ -142,26 +144,26 @@ class Register extends RegisterBase {
             if (!is_dir($structure)) {
                 FileHelper::createDirectory($struc_path);
             }
-            $imagepath = Images::uploadFile($this, 'portrait', $structure);
+            $imagepath = Images::uploadFile($this, $attr, $structure);
             if ($imagepath['errorCode'] == 0) {
                 // file is uploaded successfully
-                $this->portrait = $imagepath['file'];
+                $this->$attr = $imagepath['file'];
                 return true;
             }
             return false;
         } else {
-            if ($_FILES["Register"]["name"]["portrait"] == null) {
-                unset($this->portrait);
+            if ($_FILES["Register"]["name"][$attr] == null) {
+                unset($this->$attr);
                 return true;
             } else {
                 if (!is_dir($structure)) {
                     FileHelper::createDirectory($struc_path);
                 }
-                $imagepath = Images::uploadFile($this, 'portrait', $structure);
+                $imagepath = Images::uploadFile($this, $attr, $structure);
 
                 if ($imagepath['errorCode'] == 0) {
                     // file is uploaded successfully
-                    $this->portrait = $imagepath['file'];
+                    $this->$attr = $imagepath['file'];
                     return true;
                 }
                 return false;

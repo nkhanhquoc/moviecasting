@@ -19,25 +19,64 @@ class NewsController extends AppController {
 
     //put your code here
     public function actionIndex() {
-        
+        $news = News::find()->where(['status' => 1])->orderBy('created_time desc')->asArray()->all();
+        $others = array();
+        $hot = array();
+        $list = array();
+        if (count($news) > 0) {
+            $hot = $news[0];
+            $hot['imagepath'] = Yii::$app->params['media_path'].$hot['image_path'];
+            $others = array_slice($news, 1);
+            
+            foreach($others as $n){
+                $n['imagepath'] = Yii::$app->params['media_path'].$n['image_path'];
+                $list[] = $n;
+            }
+        }
+        return $this->render('index.twig', [
+                    'hot' => $hot,
+                    'others' => $list
+        ]);
     }
 
     public function actionDetail() {
         $id = Yii::$app->getRequest()->getQueryParam('id');
-        $news = News::find(['id'=>$id, 'status'=>1])->one();
+        $news = News::find()->where(['id' => $id, 'status' => 1])->one();
         $other = News::find()
-                ->where(['!=','id',$id])
-                ->andWhere(['status'=>1])
+                ->where(['!=', 'id', $id])
+                ->andWhere(['status' => 1])
                 ->all();
-        
-        if($news){
-            return $this->render('detail.twig',[
-                'news' => $news,
-                'others'=>$other
+
+        if ($news) {
+            return $this->render('detail.twig', [
+                        'news' => $news,
+                        'others' => $other
             ]);
         } else {
             throw \yii\web\NotFoundHttpException;
         }
+    }
+    
+    public function actionGetMore() {
+        $this->layout = false;
+        $page = Yii::$app->getRequest()->getQueryParam('page');
+        $removeid = Yii::$app->getRequest()->getQueryParam('removeid');
+        $movie = News::getMoreNews($removeid,true);
+        $limit = Yii::$app->params['page_news'];
+        if (!$page)
+            $page = 1;
+        $pages = new Pagination(['totalCount' => count($movie)]);
+        $pages->setPage($page - 1);
+        $pages->setPageSize($limit);
+        $listMore = array_slice($movie, ($page - 1) * $limit, $limit);
+        $text = $this->render('_listmore.twig', [
+                    'normal' => $listMore
+        ]);
+        $arrData = array(
+            'text'=>$text,
+            'page'=>$page+1
+        );
+        return json_encode($arrData);
     }
 
 }

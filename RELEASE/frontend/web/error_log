@@ -1,0 +1,8 @@
+[26-Dec-2017 14:54:46 UTC] PHP Fatal error:  Class 'Twig_Loader_Filesystem' not found in /home/nkhanhqu/moviecasting.nkhanhquoc.com/vendor/yiisoft/yii2/di/Container.php on line 381
+[26-Dec-2017 14:56:23 UTC] PHP Fatal error:  Class 'Twig_Loader_Filesystem' not found in /home/nkhanhqu/moviecasting.nkhanhquoc.com/vendor/yiisoft/yii2/di/Container.php on line 381
+[26-Dec-2017 14:56:40 UTC] PHP Fatal error:  Class 'Twig_Loader_Filesystem' not found in /home/nkhanhqu/moviecasting.nkhanhquoc.com/vendor/yiisoft/yii2/di/Container.php on line 381
+[26-Dec-2017 14:59:05 UTC] PHP Fatal error:  Class 'Twig_Loader_Filesystem' not found in /home/nkhanhqu/moviecasting.nkhanhquoc.com/vendor/yiisoft/yii2/di/Container.php on line 381
+[26-Dec-2017 15:00:25 UTC] PHP Fatal error:  Class 'Twig_Loader_Filesystem' not found in /home/nkhanhqu/moviecasting.nkhanhquoc.com/vendor/yiisoft/yii2/di/Container.php on line 381
+[26-Dec-2017 15:05:02 UTC] PHP Fatal error:  Class 'Twig_Loader_Filesystem' not found in /home/nkhanhqu/moviecasting.nkhanhquoc.com/vendor/yiisoft/yii2/di/Container.php on line 381
+[26-Dec-2017 15:06:11 UTC] PHP Fatal error:  Class 'Twig_Loader_Filesystem' not found in /home/nkhanhqu/moviecasting.nkhanhquoc.com/vendor/yiisoft/yii2/di/Container.php on line 381
+[04-Jan-2018 02:38:34 UTC] PHP Fatal error:  Call to undefined method frontend\models\Movie::getMoreMovie() in /home/nkhanhqu/moviecasting.nkhanhquoc.com/frontend/controllers/SiteController.php on line 57

@@ -12,7 +12,7 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.6",
@@ -32,7 +32,9 @@
         "mickgeek/yii2-actionbar": "^1.0",
         "kartik-v/yii2-grid": "@dev",
         "kartik-v/yii2-widgets": "*",
-        "kartik-v/yii2-date-range": "dev-master"
+        "kartik-v/yii2-date-range": "dev-master",
+        "tinymce/tinymce": "^4.7",
+        "navatech/yii2-roxymce": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
@@ -48,5 +50,5 @@
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
         }
-    }
+    }    
 }

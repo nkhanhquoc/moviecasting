@@ -1,0 +1,57 @@
+<div class="main-slider" id="slider-01">
+    <div class="container clearfix">
+        <div class="header-line">
+                <span class="text-uppercase">Dự án tiêu biểu</span>
+        </div>
+        <div id="slider" class="cycle-slideshow" data-cycle-timeout="800" data-cycle-speed="1800" data-cycle-pause-on-hover="true" data-cycle-slides="> div" data-cycle-log="false" data-cycle-swipe="true"
+    data-cycle-swipe-fx="scrollHorz" data-cycle-prev="#slider-01 .slider-control .slider-nav .prev" data-cycle-next="#slider-01 .page-slider .slider-nav .next" data-cycle-pager="#slider-01 .footer-page-slider .slider-pager">
+            {% for key,val in hot %}
+        <div class="content-item">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="thumb">
+                        <div class="thumb-img">
+                                <a href="{{ url('movie/index',{'id':val.id})|raw }}">
+                                    <img src="{{val.imagepath}}" class="img-responsive" alt="" />
+                                </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                        <h2>{{val.name}}</h2>
+                        <p>{{val.short_description}}</p>
+                        <p>
+                                <i class="icons icon-cam"></i> 
+                                {% if val.type == 1 %}
+                                    {{'Phim'}}
+                                    {% else %}
+                                        {{'Quảng cáo'}}
+                                    {% endif %}
+                                    <br />
+                                <i class="icons icon-person"></i> {{ val.join }} người tham gia &nbsp;&nbsp; 
+                                <i class="icons icon-clock"></i> Còn {{val.leftdate}} ngày
+                        </p>
+                        <a href="{{ url('movie/index',{'id':val.id})|raw }}" class="btn btn-warning">XEM CHI TIẾT</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        </div>
+
+        <div class="footer-page-slider">
+            <div class="row">
+                    <div class="col-md-8">
+                            <div class="slider-pager"></div>
+                            <div class="slider-control">
+                                    <div class="slider-nav"> 
+                                        <a href="javascript:void(0)" class="prev">
+                                            <i class="fa fa-caret-left" aria-hidden="true"></i></a> 
+                                        <a href="javascript:void(0)" class="next"><i class="fa fa-caret-right" aria-hidden="true"></i></a> 
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

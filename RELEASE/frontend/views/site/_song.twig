@@ -1,0 +1,42 @@
+<div class="col-sm-6 col-md-5">
+            <div class="mdl-1 mdl-song-nominations">
+                <div class="title">
+                  <a {{ ajax_url('song/index',{'slug':'song-hot'})|raw }} class="txt"> Bài hát đề cử</a>
+                  <a {{ ajax_url('song/index',{'slug':'song-hot'})|raw }} class="pull-right view-all"></a>
+                </div>
+              <div class="scroll-pane horizontal-only">
+                {% for key,val in listSongHot %}
+                    {% set artist=val|getSingerNameBySong %}
+                    {% set poster=val|getImagePathBySong %}
+                    {% set posterBlur=val|getImageBlurPathBySong %}
+                    <div class="media trimtext-songnamehome-parent">
+                      <div class="media-left play-song-now" id="song-{{ val.slug }}"
+                          data-play="{{ val|encodeSongBase64(artist,poster,posterBlur) }}">
+                        <a href="javascript:void(0)">
+                          <img class="media-object" src="{{ poster }}" width="48" alt="...">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <a href="{{ url('song/song-detail', {'slug' : val.slug}) }}" class="song-name ellipsis">{{ val.name }}</a>
+                        <p class="singer-name ellipsis"><a href="{{ url('song/song-detail', {'slug' : val.slug}) }}">{{ artist }}</a></p>
+                      </div>
+                      <div class="media-right">
+                        <div class="right-info">
+                            <span class="viewer"><i class="fa icon-headphone"></i><br>{{ (val.view_number=='' or val.view_number is null)?'0':val.view_number|formatNumber }}</span>
+                            <span class="download"><i class="fa icon-download"></i><br>{{ (val.download_number=='' or val.download_number is null)?'0':val.download_number|formatNumber }}</span>
+                            <span class="link-more-mobile" data-toggle="modal" data-target="#modal-popup">
+                            	<i class="fa icon-more"></i>
+                            </span>
+                        </div>
+                      </div>
+                      <div class="overlay">
+                        <a href="javascript:void(0)" onclick="$('#song-{{ val.slug }}').click()" class="bg-color-01"><i class="fa icon-play2"></i></a>
+                        <a href="javascript:void(0)" onclick="addToPlaylist('{{val.slug}}')" class="bg-color-02"><i class="fa icon-add-playlist"></i></a>
+                        <!-- <a href="javascript:void(0)" class="bg-color-03"><i class="fa icon-download"></i></a> -->
+                        <a target="_blank" href="https://facebook.com/sharer.php?u={{ url('song/song-detail', {'slug' : val.slug}) }}" class="bg-color-04"><i class="fa icon-share"></i></a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+        </div>
+    </div>

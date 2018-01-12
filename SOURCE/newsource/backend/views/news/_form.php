@@ -30,10 +30,19 @@ use yii\helpers\Html;
             <?= $form->field($model, 'image_path')->fileInput()?> 
             <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>  
             
-            <?= $form->field($model, 'content')->widget(CKEditor::className(), [
-                    'options' => ['rows' => 10],
-                    'preset' => 'basic'
-                ]) ?>  
+            
+            
+            <?php echo \navatech\roxymce\widgets\RoxyMceWidget::widget([
+                'model' => $model,
+                'attribute' => 'content',
+                'clientOptions' => [ // custom roxy remove <p>
+                    'force_br_newlines' => true,
+                    'force_p_newlines' => false,
+                    'forced_root_block' => '',  // Needed for 3.x
+                    'statusbar'=> true,
+                    'menubar'=> false,
+                    ]
+                ]); ?>
            
             <?= $form->field($model, 'status')->checkBox()?>      
           

@@ -72,7 +72,10 @@ class RegisterController extends AppController {
         if ($model->load(Yii::$app->request->post())) {
             $params = Yii::$app->request->post();
             $star = $params['Register']['star'];
-            if ($star < 6 && $star > 0 && $model->uploadPortrait()) {
+            $p1 = $model->uploadPortrait('portrait');
+            $p2 = $model->uploadPortrait('portrait_2');
+            $p3 = $model->uploadPortrait('portrait_3');
+            if ($star < 6 && $star > 0 && ($p1 || $p2 || $p3)) {
                 $model->save();
                 Yii::$app->session->setFlash('success', "Cập nhật thành công!");
                 return $this->render('update', [
@@ -98,13 +101,18 @@ class RegisterController extends AppController {
     public function actionCreate() {
         $model = new Register();
         if ($model->load(Yii::$app->request->post())) {
-            if ($_FILES["Register"]["name"]["portrait"] == null) {
+            if ($_FILES["Register"]["name"]["portrait"] == null
+                    && $_FILES["Register"]["name"]["portrait_2"] == null 
+                    && $_FILES["Register"]["name"]["portrait_3"] == null) {
                 $model->addError('portrait', 'Ảnh chân dung không được để trống.');
                 return $this->render('create', [
                             'model' => $model,
                 ]);
             } else {
-                if ($model->uploadPortrait()) {
+                $p1 = $model->uploadPortrait('portrait');
+                $p2 = $model->uploadPortrait('portrait_2');
+                $p3 = $model->uploadPortrait('portrait_3');
+                if ($p1 || $p2 || $p3) {
                     $model->save();
                     Yii::$app->session->setFlash('success', "Thêm mới thành công!");
 

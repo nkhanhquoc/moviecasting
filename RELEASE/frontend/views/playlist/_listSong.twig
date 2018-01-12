@@ -1,0 +1,73 @@
+<div class="mdl-1 mdl-song-nominations reset-padding" id="magicPlaylistPlayer">
+                    <div class="title">
+                      <a href="javascript:void(0)" class="txt"> Danh sách bài hát</a>
+                    </div>
+                    <div class="scroll-pane horizontal-only jp-playlist">
+                      {% for val in listSong %}
+                        {% set artist=val|getSingerNameBySong %}
+                        {% set poster=val|getImagePathBySong %}
+                        {% set posterBlur=val|getImageBlurPathBySong %}
+                        <li class="hide-dot">
+                          <div class="media jp-playlist-item" id="song-{{ val.slug }}"
+                              data-play="{{ val|encodeSongBase64(artist,poster,posterBlur) }}">
+                            <div class="media-left play-song-now song-in-list">
+                              <a href="javascript:void(0)">
+                                <img class="media-object" src="{{ poster }}" width="48" alt="...">
+                              </a>
+                              <div class="mask" style="display:none">
+                                <i class="fa icon-playing"></i>
+                              </div>
+                            </div>
+                            <div class="media-body song-in-list">
+                              <a href="javascript:void(0)" class="song-name ellipsis">{{val.name}}</a>
+                              <p class="singer-name ellipsis"><a href="javascript:void(0)">{{artist}}</a></p>
+                            </div>
+                            <div class="media-right">
+                              <div class="right-info right-info-2">
+                                  <span class="viewer"><i class="fa icon-headphone"></i><br>{{ (val.view_number=='' or val.view_number is null)?'0':val.view_number|formatNumber }}</span>
+                                  <span class="download"><i class="fa icon-download"></i><br>{{ (val.download_number=='' or val.download_number is null)?'0':val.download_number|formatNumber }}</span>
+                                  <!-- <span class="download"><i class="fa icon-gift"></i><br>1523</span> -->
+                                  <span data-target="#modal-popup" data-toggle="modal" class="link-more-mobile">
+                                  <i class="fa icon-more"></i>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="overlay">
+                              <a href="javascript:void(0)" class="bg-color-01 play-song-now"><i class="fa icon-play2"></i></a>
+                              <!-- <a href="javascript:void(0)" onclick="addToPlaylist('{{val.slug}}')" class="bg-color-02"><i class="fa icon-add-playlist"></i></a> -->
+                              <!-- <a href="#" class="bg-color-03"><i class="fa icon-download"></i></a> -->
+                              <a target="_blank" href="https://facebook.com/sharer.php?u={{ url('song/song-detail', {'slug' : val.slug}) }}" class="bg-color-04"><i class="fa icon-share"></i></a>
+                            </div>
+                          </div>
+                          </li>
+                      {% endfor %}
+                      <!-- <div class="media">
+                        <div class="media-left">
+                          <a href="#">
+                            <img class="media-object" src="/images/4x4.png" width="48" alt="...">
+                          </a>
+                          <div class="mask"><i class="fa icon-playing"></i></div>
+                        </div>
+                        <div class="media-body">
+                          <a href="#" class="song-name ellipsis">Con Tim Anh Nằm Đâu</a>
+                          <p class="singer-name ellipsis"><a href="#">Bảo Thy</a></p>
+                        </div>
+                        <div class="media-right">
+                          <div class="right-info right-info-2">
+                              <span class="viewer"><i class="fa icon-headphone"></i><br>8752</span>
+                              <span class="download"><i class="fa icon-download"></i><br>1523</span>
+                              <span class="download"><i class="fa icon-gift"></i><br>1523</span>
+                              <span data-target="#modal-popup" data-toggle="modal" class="link-more-mobile">
+                              <i class="fa icon-more"></i>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="overlay">
+                          <a href="#" class="bg-color-01"><i class="fa icon-play2"></i></a>
+                          <a href="#" class="bg-color-02"><i class="fa icon-add-playlist"></i></a>
+                          <a href="#" class="bg-color-03"><i class="fa icon-download"></i></a>
+                          <a href="#" class="bg-color-04"><i class="fa icon-share"></i></a>
+                        </div>
+                      </div> -->
+                  </div>
+            </div>

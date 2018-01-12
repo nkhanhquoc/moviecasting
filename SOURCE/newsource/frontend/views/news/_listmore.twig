@@ -1,0 +1,21 @@
+ {% for k,val in others %}
+        <li class="col-md-4 col-sm-6">
+            <article class="article-item">
+                <div class="thumb-img">
+                    <a href="{{ url('news/detail',{'id':val.id}) }}">
+                        <img src="{{ val.imagepath }}" alt="" />
+                    </a>
+                </div>
+                <div class="article-summary">
+                    <h4 class="article-title">
+                        <a href="{{ url('news/detail',{'id':val.id}) }}">{{ val.title }}</a></h4>
+                    <div class="summary">
+                        <p>{{ val.description }}</p></div>
+                    <{#div class="article-meta">
+                        <i class="icons icon-cam"></i> Quảng cáo<br />
+                        <i class="icons icon-person"></i> 1k người tham gia &nbsp;&nbsp; <i class="icons icon-clock"></i> Còn 20 ngày
+                    </div>#}
+                </div>
+            </article>
+        </li>
+        {% endfor %}

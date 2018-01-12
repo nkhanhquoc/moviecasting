@@ -26,15 +26,23 @@ use yii\helpers\Html;
     <div class="portlet-body">
         <div class="form-body">
             <?= $form->field($model, 'name')->textInput(['maxlength' => 50]) ?>
-            <?= Html::img($model['image_path'], ['width' => '60px']); ?>
             <?= $form->field($model, 'hot')->checkBox()?>      
+            <?= Html::img($model['image_path'], ['width' => '60px']); ?>
             <?= $form->field($model, 'image_path')->fileInput()?> 
-            <?= $form->field($model, 'short_description')->textarea(['rows' => 2]) ?>  
+            <?= $form->field($model, 'short_description')->textarea(['rows' => 2]) ?>           
             
-            <?= $form->field($model, 'description')->widget(CKEditor::className(), [
-                    'options' => ['rows' => 10],
-                    'preset' => 'full'
-                ]) ?>  
+            
+            <?php echo \navatech\roxymce\widgets\RoxyMceWidget::widget([
+                'model' => $model,
+                'attribute' => 'description',
+                'clientOptions' => [ // custom roxy remove <p>
+                    'force_br_newlines' => true,
+                    'force_p_newlines' => false,
+                    'forced_root_block' => '',  // Needed for 3.x
+                    'statusbar'=> true,
+                    'menubar'=> false,
+                    ]
+                ]); ?>
            
             <?= $form->field($model, 'status')->checkBox()?>      
           

@@ -3,16 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/SingerController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/RegisterController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/SiteController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/news/index.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/news/detail.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/ContactController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/register/_form.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/AjaxController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/views/casting/_form.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/register/index.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/components/header.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/News.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/controllers/RegisterController.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/views/news/_form.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/Movie.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/config/params.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/config/params.php</file>
@@ -20,13 +24,16 @@
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/assets/AppAsset.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/config/routing.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/contact/index.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/movie/_listmore.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/movie/_detail.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/models/Register.php</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/movie/_moviesection.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/controllers/CastingController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/NewsController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/AppController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/models/Register.php</file>
-            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/news/_others.twig</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/web/js/jquery.validationEngine.js</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/views/movie/moviedetail.twig</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/config/params-local.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/views/register/_form.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/models/Casting.php</file>
@@ -42,6 +49,7 @@
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/components/TwigExtension.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/controllers/MovieController.php</file>
             <file>file:/E:/Duan/moviecasting/SOURCE/newsource/frontend/web/js/main.js</file>
+            <file>file:/E:/Duan/moviecasting/SOURCE/newsource/backend/views/movie/_form.php</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+{{ include('_genres.twig',{'listGenre':listGenre,'genreId':genreId}) }}
+
+<div class="col-sm-9 col-md-9">
+        <div class="mdl-1 mdl-playlists">
+        <div class="title ellipsis" style="width: 500px">
+              <a href="javascript:void(0)" class="txt"> {{title}}</a>
+          </div>
+          <!-- Nav tabs -->
+          <ul class="nav nav-pills" role="tablist">
+            <li><a href="#profile" role="tab" data-toggle="tab"></a></li>
+            <li><a href="#messages" role="tab" data-toggle="tab"></a></li>
+            <li class="active"><a href="javascript:void(0)" role="tab" data-toggle="tab">Nổi bật</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content tab-remove-padding">
+               <div role="tabpanel" class="tab-pane active" id="home">
+                  <div class="mdl-songs">
+                    {% for val in listSong %}
+                      {% set artist=val|getSingerNameBySong %}
+                      {% set poster=val|getImagePathBySong %}
+                      {% set posterBlur=val|getImageBlurPathBySong %}
+                      <div class="media">
+                        <div class="media-left">
+                          <a href="javascript:void(0)">
+                            <img class="media-object" src="{{poster}}" width="36" alt="...">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <a href="{{ url('song/song-detail', {'slug' : val.slug}) }}" class="song-name ellipsis">Con Tim Anh Nằm Đâu</a>
+                          <a href="{{ url('song/song-detail', {'slug' : val.slug}) }}" class="singer-name ellipsis"> - {{artist}}</a>
+                        </div>
+                        <div class="media-right">
+                                <div class="right-info">
+                                    <span class="viewer"><i class="fa icon-headphone"></i>{{ (val.view_number=='' or val.view_number is null)?'0':val.view_number|formatNumber }}</span>
+                                    <span class="download"><i class="fa icon-download"></i>{{ (val.download_number=='' or val.download_number is null)?'0':val.download_number|formatNumber }}</span>
+                                    <!-- <span class="gift"><i class="fa icon-gift"></i>9823</span> -->
+                                </div>
+                        </div>
+                        <div data-target="#modal-popup" data-toggle="modal" class="link-more-mobile">
+                              <i class="fa icon-more"></i>
+                        </div>
+                        <div class="overlay">
+                          <a href="#" class="bg-color-01"><i class="fa icon-play2"></i> Nghe</a>
+                          <a href="#" class="bg-color-02"><i class="fa icon-add-playlist"></i> Playlist</a>
+                          <a href="#" class="bg-color-03"><i class="fa icon-download"></i> Tải</a>
+                          <a href="#" class="bg-color-04"><i class="fa icon-gift"></i> Tặng</a>
+                        </div>
+                      </div>
+                    {% endfor %}
+                </div>
+                   <!--Pagination-->
+                    {{ include('@app/views/components/pagination.twig',{'pages':pages}) }}
+                </div>
+                <!-- <div role="tabpanel" class="tab-pane" id="profile">... 2</div>
+                <div role="tabpanel" class="tab-pane" id="messages">... 3</div> -->
+              </div>
+    </div>
+    </div>
+    </div>
+    </div>
