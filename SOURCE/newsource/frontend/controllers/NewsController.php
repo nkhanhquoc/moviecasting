@@ -9,6 +9,7 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\News;
+use yii\data\Pagination;
 
 /**
  * Description of NewsController
@@ -19,23 +20,22 @@ class NewsController extends AppController {
 
     //put your code here
     public function actionIndex() {
-        $news = News::find()->where(['status' => 1])->orderBy('created_time desc')->asArray()->all();
+        $limit = Yii::$app->params['page_movie'];
+        $hot = News::find()->where(['status' => 1])->orderBy('created_time desc')->one();
         $others = array();
-        $hot = array();
-        $list = array();
-        if (count($news) > 0) {
-            $hot = $news[0];
-            $hot['imagepath'] = Yii::$app->params['media_path'].$hot['image_path'];
-            $others = array_slice($news, 1);
-            
-            foreach($others as $n){
-                $n['imagepath'] = Yii::$app->params['media_path'].$n['image_path'];
-                $list[] = $n;
-            }
+        if ($hot) {
+            $others = News::find()
+                    ->where(['status' => 1])
+                    ->andWhere(['not in', 'id', $hot->id])
+                    ->orderBy('created_time desc')
+                    ->limit($limit)
+                    ->all();
         }
         return $this->render('index.twig', [
                     'hot' => $hot,
-                    'others' => $list
+                    'others' => $others,
+                    'page' => 2,
+                    'removeid' => $hot->id
         ]);
     }
 
@@ -56,13 +56,14 @@ class NewsController extends AppController {
             throw \yii\web\NotFoundHttpException;
         }
     }
-    
+
     public function actionGetMore() {
         $this->layout = false;
         $page = Yii::$app->getRequest()->getQueryParam('page');
         $removeid = Yii::$app->getRequest()->getQueryParam('removeid');
-        $movie = News::getMoreNews($removeid,true);
-        $limit = Yii::$app->params['page_news'];
+        $movie = News::getMoreNews($removeid);
+//        var_dump($movie);die;
+        $limit = Yii::$app->params['page_movie'];
         if (!$page)
             $page = 1;
         $pages = new Pagination(['totalCount' => count($movie)]);
@@ -70,11 +71,11 @@ class NewsController extends AppController {
         $pages->setPageSize($limit);
         $listMore = array_slice($movie, ($page - 1) * $limit, $limit);
         $text = $this->render('_listmore.twig', [
-                    'normal' => $listMore
+            'others' => $listMore
         ]);
         $arrData = array(
-            'text'=>$text,
-            'page'=>$page+1
+            'text' => $text,
+            'page' => $page + 1
         );
         return json_encode($arrData);
     }

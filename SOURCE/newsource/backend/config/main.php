@@ -25,7 +25,7 @@ return [
         'roxymce' => [
             'class' => 'navatech\roxymce\Module',
             'uploadFolder' => '@backend/web/upload/images',
-            'uploadUrl' => '/upload/images',
+            'uploadUrl' => 'http://mediamc.nkhanhquoc.com/upload/images',
         ],
         'gridview' => 'kartik\grid\Module',
     ],

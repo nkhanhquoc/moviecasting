@@ -3,27 +3,13 @@
     <div class="the-title clearfix">
         <h4>Các tin khác</h4>
     </div>
-    <ul class="row articles-list list-unstyled">
-        {% for k,val in others %}
-        <li class="col-md-4 col-sm-6">
-            <article class="article-item">
-                <div class="thumb-img">
-                    <a href="{{ url('news/detail',{'id':val.id}) }}">
-                        <img src="{{ val.imagepath }}" alt="" />
-                    </a>
-                </div>
-                <div class="article-summary">
-                    <h4 class="article-title">
-                        <a href="{{ url('news/detail',{'id':val.id}) }}">{{ val.title }}</a></h4>
-                    <div class="summary">
-                        <p>{{ val.description }}</p></div>
-                    <{#div class="article-meta">
-                        <i class="icons icon-cam"></i> Quảng cáo<br />
-                        <i class="icons icon-person"></i> 1k người tham gia &nbsp;&nbsp; <i class="icons icon-clock"></i> Còn 20 ngày
-                    </div>#}
-                </div>
-            </article>
-        </li>
-        {% endfor %}
+    <ul class="row articles-list list-unstyled" id="list-news-container">
+        <input type="hidden" value="{{page}}" id="news-list-page">
+       {{ include('_listmore.twig',{'others':others}) }}
     </ul>
+    <div class="text-center">
+        <a href="javascrip:void(0)" 
+           onclick="loadMore('/movie/more-view/{{removeid}}/','list-news-container','news-list-page')"
+           id="news-more-button"
+           class="btn btn-dark btn-load-more">XEM THÊM</a></div>
 </section>

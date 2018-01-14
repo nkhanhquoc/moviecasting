@@ -10,5 +10,6 @@ return [
     'tin-tuc' =>'/news/index',
     'tin-chi-tiet/<id>' => '/news/detail',
     'movie/more-view/<removeid>/<page>' => '/movie/get-more',
-    'index/more-view/<page>' => '/site/get-more'
+    'index/more-view/<page>' => '/site/get-more',
+    'news/more-view/<removeid>/<page>' => '/news/get-more'
 ];

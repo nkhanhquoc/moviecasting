@@ -17,11 +17,11 @@ class News extends NewsBase{
         return Yii::$app->params['media_path'].$this->image_path;
     }
     
-    public static function getMoreNews($removeid, $isHot = false) {
+    public static function getMoreNews($removeid) {
         $query = News::find()
                 ->where(['status' => 1])
                 ->andWhere(['not in', 'id', $removeid])
-                ->orderBy('id desc');        
+                ->orderBy('created_time desc');        
         return $query->all();
     }
 }
