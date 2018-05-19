@@ -18,8 +18,10 @@ use backend\models\Movie;
         'method' => 'get',
     ]); ?>   
 
-    <?= $form->field($model, 'name') ?>
-    <?= $form->field($model, 'star')->dropDownList([
+    <?= $form->field($model, 'name',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <?= $form->field($model, 'blacklist_note',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <br>
+    <?= $form->field($model, 'star',[ 'options' => ['style' => 'width: 50%;float:left']])->dropDownList([
                      1 => "1 Sao",
                 2 => "2 Sao",
                 3 => "3 Sao",
@@ -27,12 +29,15 @@ use backend\models\Movie;
                 5 => "5 Sao"],
                     ['prompt'=>'Tất cả']
                 ) ?>
-    <?= $form->field($model, 'casting_id')->dropDownList(
+    
+    <?= $form->field($model, 'casting_id',[ 'options' => ['style' => 'width: 50%;float:left']])->dropDownList(
                     $model->getAllCasting(),
                     ['prompt'=>'Tất cả']
                 )?>
+    <br>
     <div class="form-group">
         <lablel class="control-label">Ngày tạo từ</lablel>
+        <br>
     <?= yii\jui\DatePicker::widget([
                             'name' => 'RegisterSearch[end_time_from]',
                             'dateFormat' => 'php:Y-m-d',
@@ -40,7 +45,8 @@ use backend\models\Movie;
                             'value' => \yii\helpers\Html::encode($fromTime),
                             'options' => [
                                 'readonly' => 'readonly',
-                                'class' =>'form-control'
+                                'class' =>'form-control',
+                               
                             ],
                         ]) ?>
         <div class="help-block"></div>
@@ -53,26 +59,28 @@ use backend\models\Movie;
                             'value' => \yii\helpers\Html::encode($toTime),
                             'options' => [
                                 'readonly' => 'readonly',
-                                'class' =>'form-control'
+                                'class' =>'form-control',
+                                
                             ],
                         ])
                         ?>
         
     </div>
     
-    <div style="display: inline;width: 300px;float:left;">
-    <?= $form->field($model, 'chest_from',[ 'options' => ['style' => 'width: 120px']]) ?>
-    <?= $form->field($model, 'chest_to',[ 'options' => ['style' => 'width: 120px']]) ?>
-        </div>
-    <?= $form->field($model, 'waist_from',[ 'options' => ['style' => 'width: 120px']]) ?>
-    <?= $form->field($model, 'waist_to',[ 'options' => ['style' => 'width: 120px']]) ?>
-    <?= $form->field($model, 'butt_from',[ 'options' => ['style' => 'width: 120px']]) ?>
-    <?= $form->field($model, 'butt_to',[ 'options' => ['style' => 'width: 120px']]) ?>
-    
-    <?= $form->field($model, 'height_from',[ 'options' => ['style' => 'width: 120px']]) ?>
-    <?= $form->field($model, 'height_to',[ 'options' => ['style' => 'width: 120px']]) ?>
-    <?= $form->field($model, 'weight_from',[ 'options' => ['style' => 'width: 120px']]) ?>
-    <?= $form->field($model, 'weight_to',[ 'options' => ['style' => 'width: 120px']]) ?>
+    <?= $form->field($model, 'chest_from',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <?= $form->field($model, 'chest_to',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+        <br>
+    <?= $form->field($model, 'waist_from',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <?= $form->field($model, 'waist_to',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+        <br>
+    <?= $form->field($model, 'butt_from',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <?= $form->field($model, 'butt_to',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <br>
+    <?= $form->field($model, 'height_from',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <?= $form->field($model, 'height_to',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <br>
+    <?= $form->field($model, 'weight_from',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
+    <?= $form->field($model, 'weight_to',[ 'options' => ['style' => 'width: 50%;float:left']]) ?>
     
     
     

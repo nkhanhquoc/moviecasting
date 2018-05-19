@@ -4,7 +4,7 @@ use awesome\backend\widgets\AwsBaseHtml;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
 use yii\helpers\Html;
-
+use kartik\date\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Menu */
 /* @var $title string */
@@ -28,9 +28,19 @@ use yii\helpers\Html;
             <?= $form->field($model, 'name')->textInput(['maxlength' => 50]) ?>
             <?= $form->field($model, 'hot')->checkBox()?>      
             <?= Html::img($model['image_path'], ['width' => '60px']); ?>
-            <?= $form->field($model, 'image_path')->fileInput()?> 
+            <?= $form->field($model, 'image_path')->fileInput()->hint('Kích cỡ ảnh 600x322',['style'=>'font-style:italic;color:red'])?> 
+            <?= $form->field($model, 'end_time')->widget(DatePicker::classname(), [
+                    'language' => 'vi',
+                    'pluginOptions' => [
+                        'format' => 'dd-mm-yyyy',
+                        'todayHighlight' => true
+                    ]
+                ]) ?>
+            <?= $form->field($model, 'type')->dropDownList([
+                1 => "Phim",
+                2 => "Quảng cáo"
+            ]) ?>
             <?= $form->field($model, 'short_description')->textarea(['rows' => 2]) ?>           
-            
             
             <?php echo \navatech\roxymce\widgets\RoxyMceWidget::widget([
                 'model' => $model,

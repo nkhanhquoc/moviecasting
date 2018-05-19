@@ -2,14 +2,14 @@
     <li class="col-md-4 col-sm-6">
         <article class="article-item">
             <div class="thumb-img">
-                <a href="{{ url('movie/index',{'id':val.id })}}">
+                <a href="{{ url('movie/index',{'slug':val.slug })}}">
                     <img src="{{ val.imagepath }}" alt="{{val.name}}" />
                 </a>
             </div>
             <div class="article-summary">
-                <h4 class="article-title"><a href="{{ url('movie/index',{'id':val.id })}}">{{ val.name }}</a></h4>
+                <h4 class="article-title"><a href="{{ url('movie/index',{'slug':val.slug })}}">{{ val.name }}</a></h4>
                 <div class="summary">
-                    <p>{{ val.description }}</p></div>
+                    <p>{{ val.short_description }}</p></div>
                 <div class="article-meta">
                     <i class="icons icon-cam"></i> 
                     {% if val.type == 1 %}

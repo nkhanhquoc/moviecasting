@@ -285,3 +285,18 @@ a[href='#'] {
     text-decoration: none !important;
     cursor: default !important;
 }
+
+.transition {
+    -webkit-transform: scale(5); 
+    -moz-transform: scale(5);
+    -o-transform: scale(5);
+    transform: scale(5);
+    z-index:1000;
+    position: absolute;
+}
+.img_hover {
+	-webkit-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+}

@@ -63,6 +63,9 @@
 $().ready(function () {
     $('#register-form').validationEngine();
     $('#contact-form').validationEngine();
+    $('.datepicker').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
 
 });
 
@@ -70,8 +73,15 @@ function loadMore(url, container, idpage) {
     var page = $('#' + idpage).val();
     $.get(url + page, function (data, status) {
         var json = JSON.parse(data);
-        $('#' + idpage).val(json.page);
-        $('#' + container).append(json.text);
+        if (json.text.trim() !== "") {
+            $('#' + idpage).val(json.page);
+            $('#' + container).append(json.text);
+            if (json.hide == 1) {
+                $('#more-button').hide();
+            }
+        } else {
+            $('#more-button').hide();
+        }
     });
 }
 

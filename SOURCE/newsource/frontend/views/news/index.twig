@@ -32,7 +32,8 @@
                     </div>
                 </article>
             </section>
-            {{ include('_list.twig',{'others':others,'page':page,'removeid':removeid}) }}
+
+            {{ include('_list.twig',{'others':others,'page':page,'removeid':removeid,'limit':limit,'total':total}) }}
             
         </div>
     </div>

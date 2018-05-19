@@ -22,7 +22,8 @@ class AppAsset extends AssetBundle {
         'css/owl.carousel.css',
         'css/owl.theme.css',
         'css/styles.css',
-        'css/validationEngine.jquery.css'
+        'css/validationEngine.jquery.css',
+        'libs/css/bootstrap-datetimepicker.min.css',
     ];
     public $js = [
         'libs/js/jquery.min.js',
@@ -34,7 +35,7 @@ class AppAsset extends AssetBundle {
         'js/owl.carousel.js',
         'js/jquery.validationEngine-vi.js',
         'js/jquery.validationEngine.js',
-        'js/main.js?v=1.3'
+        'js/main.js?v=1.4'
     ];
     public $depends = [
         'yii\web\JqueryAsset',

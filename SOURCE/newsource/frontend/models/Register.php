@@ -53,7 +53,7 @@ class Register extends RegisterBase{
             $imagepath = Images::uploadFile($this, $attr, $structure);
             if ($imagepath['errorCode'] == 0) {
                 // file is uploaded successfully
-                $this->$attr = $imagepath['fileFronted'];
+                $this->$attr = $imagepath['file'];
                 return true;
             }  
             return false;

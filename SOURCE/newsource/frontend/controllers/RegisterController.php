@@ -24,9 +24,9 @@ class RegisterController extends AppController {
     //put your code here
     public function actionIndex() {
 //        $form = new RegisterForm();
+        $movieid = Yii::$app->getRequest()->getQueryParam('slug');
         $id = Yii::$app->getRequest()->getQueryParam('id');
-        $casting = Casting::find(['status' => 1, 'id' => $id])->one();
-
+        $casting = Casting::find()->where(['status' => 1, 'id' => $id])->one();
         if ($casting) {
             if (Yii::$app->request->isPost) {
                 $reg = new Register();
@@ -36,9 +36,10 @@ class RegisterController extends AppController {
                     $p2 = $reg->uploadImage('portrait_2');
                     $p3 = $reg->uploadImage('portrait_3');
                     if ($p1 || $p2 || $p3) {
-                        $reg->star = 1;
+                        $reg->star = 0;
                         $reg->save(false);
                         Yii::$app->session->set('register_message', 'Đăng ký thành công!');
+                        return $this->render('success.twig');
                     } 
                 } 
             }
@@ -47,6 +48,7 @@ class RegisterController extends AppController {
                     'casting' => $casting,
                     'csrfParam' => Yii::$app->request->csrfParam,
                     'csrfToken' => Yii::$app->request->csrfToken,
+            'movieid'=>$movieid
         ]);
     }
 

@@ -3,8 +3,9 @@
 return [
     //home
     '/' => '/site/index',
-    'du-an/<id>' => '/movie/index',
-    'dang-ky/<id>' => '/register/index',
+    'du-an/<slug>' => '/movie/index',
+    'du-an'=>'movie/list',
+    'dang-ky/<movieid>/<id>' => '/register/index',
     'dang-ky' => '/register/reg',
     'lien-he'=>'/contact/index',
     'tin-tuc' =>'/news/index',

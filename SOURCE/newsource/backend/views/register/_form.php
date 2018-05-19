@@ -51,11 +51,11 @@ use kartik\date\DatePicker;
             <?= $form->field($model, 'waist')->textInput(['maxlength' => 50]) ?>
             <?= $form->field($model, 'butt')->textInput(['maxlength' => 50]) ?>
             
-            <?= Html::img($model['portrait'], ['width' => '60px']); ?>
+            <?= Html::img($model['portrait'], ['width' => '60px','class'=>'img_hover']); ?>
             <?= $form->field($model, 'portrait')->fileInput()?>
-            <?= Html::img($model['portrait_2'], ['width' => '60px']); ?>
+            <?= Html::img($model['portrait_2'], ['width' => '60px','class'=>'img_hover']); ?>
             <?= $form->field($model, 'portrait_2')->fileInput()?>
-            <?= Html::img($model['portrait_3'], ['width' => '60px']); ?>
+            <?= Html::img($model['portrait_3'], ['width' => '60px','class'=>'img_hover']); ?>
             <?= $form->field($model, 'portrait_3')->fileInput()?>
             
             <?= $form->field($model, 'facebook')->textInput(['maxlength' => 50]) ?>
@@ -68,7 +68,7 @@ use kartik\date\DatePicker;
                 4 => "4 Sao",
                 5 => "5 Sao",
             ]) ?>
-            
+            <?= $form->field($model, 'blacklist_note')->textarea(['rows'=>5]) ?>
         </div>
     </div>
     <div class="portlet-title">

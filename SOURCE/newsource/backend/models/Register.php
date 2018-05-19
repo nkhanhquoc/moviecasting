@@ -42,7 +42,8 @@ class Register extends RegisterBase {
         return [
             [['name','casting_id','genre','birth_year','msisdn','location','weight','height'
                 ,'chest','waist','butt','facebook', 'product','star'], 'required'],            
-            [['genre', 'msisdn', 'weight','height', 'chest', 'waist','butt'], 'integer']           
+            [['genre', 'msisdn', 'weight','height', 'chest', 'waist','butt'], 'integer'],
+            [['blacklist_note'],'string']
         ];
     }
 
@@ -55,11 +56,11 @@ class Register extends RegisterBase {
             'msisdn' => 'Số điện thoại',
             'location' => 'Nơi ở',
             'outfit' => 'Vẻ ngoài',
-            'height' => 'Chiều cao',
-            'weight' => 'Cân nặng',
-            'chest' => 'Vòng một',
-            'waist' => 'Vòng hai',
-            'butt' => 'Vòng ba',
+            'height' => 'Chiều cao(cm)',
+            'weight' => 'Cân nặng(kg)',
+            'chest' => 'Vòng một(cm)',
+            'waist' => 'Vòng hai(cm)',
+            'butt' => 'Vòng ba(cm)',
             'portrait' => 'Chân dung',
             'portrait_2' => 'Chân dung',
             'portrait_3' => 'Chân dung',
@@ -68,7 +69,8 @@ class Register extends RegisterBase {
             'star' => 'Đánh giá',
             'created_time' => 'Thời gian đăng ký',
             'status' => 'Trạng thái kích hoạt',
-            'sodo' => 'Số đo ba vòng'
+            'sodo' => 'Số đo ba vòng(cm)',
+            'blacklist_note' => 'Nhận xét'
         ];
     }
 

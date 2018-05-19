@@ -6,18 +6,20 @@
                         <h4>Dự án khác</h4>
                 </div>
                 <ul class="row articles-list list-unstyled" id="index-list-container">
+                    {%if total > limit%}
                     <input type="hidden" value="{{page}}" id="index-page">
+                    {%endif%}
                     {% for key,val in normal %}
                         <li class="col-md-4 col-sm-6">
                                 <article class="article-item">
                                         <div class="thumb-img">
-                                                <a href="{{ url('movie/index',{'id':val.id})|raw}}">
+                                                <a href="{{ url('movie/index',{'slug':val.slug})|raw}}">
                                                         <img src="{{val.imagepath}}" alt="" />
                                                 </a>
                                         </div>
                                         <div class="article-summary">
                                                 <h4 class="article-title">
-                                                    <a href="{{ url('movie/index',{'id':val.id})|raw}}">{{ val.name }}
+                                                    <a href="{{ url('movie/index',{'slug':val.slug})|raw}}">{{ val.name }}
                                                     </a></h4>
                                                 <div class="summary">
                                                     <p>{{ val.short_description }}
@@ -37,7 +39,9 @@
                     {% endfor %}    
                 </ul>
         </section>
+                {%if total > limit%}
         <div class="text-center">
-            <a href="javascript:void(0)" onclick="loadMore('/index/more-view/','index-list-container','index-page')" class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+            <a href="javascript:void(0)" onclick="loadMore('/index/more-view/','index-list-container','index-page')" id="more-button" class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+            {%endif%}
     </div>
 </div>

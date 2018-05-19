@@ -70,6 +70,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                 };
                                 }
                             ],  
+                            [
+                                'attribute' => 'status',
+                                'format' => 'raw', //raw, html
+                                'content' => function($dataProvider) {
+                                switch($dataProvider['status']){
+                                    case 1: return "Kích hoạt"; 
+                                    default: return "Tạm dừng"; 
+                                };
+                                }
+                            ],  
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
                     ]); ?>

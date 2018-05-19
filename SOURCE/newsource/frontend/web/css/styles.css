@@ -53,7 +53,7 @@ p {
 
 /* line 42, ../scss/_header.scss */
 .btn-danger {
-  min-width: 260px;
+  min-width: 220px;
   background-color: #d21732;
 }
 
@@ -77,13 +77,19 @@ p {
 .btn-load-more {
   min-width: 220px;
 }
+@media (max-width: 360px) {
+  /* line 65, ../scss/_header.scss */
+  .btn-load-more {
+    min-width: 100%;
+  }
+}
 
-/* line 68, ../scss/_header.scss */
+/* line 71, ../scss/_header.scss */
 .control-label {
   font-weight: 400;
 }
 
-/* line 71, ../scss/_header.scss */
+/* line 74, ../scss/_header.scss */
 .form-control {
   background-color: #f5f5f5;
 }
@@ -121,12 +127,31 @@ p {
   color: #fdbe4c;
   text-decoration: none;
 }
+/* line 27, ../scss/_nav.scss */
+.navbar .navbar-toggle {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+/* line 29, ../scss/_nav.scss */
+.navbar .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+/* line 33, ../scss/_nav.scss */
+.navbar .navbar-toggle:hover, .navbar .navbar-toggle:focus {
+  background: #ffffff;
+}
+/* line 35, ../scss/_nav.scss */
+.navbar .navbar-toggle:hover .icon-bar, .navbar .navbar-toggle:focus .icon-bar {
+  background-color: #bd1229;
+}
 
-/* line 30, ../scss/_nav.scss */
+/* line 43, ../scss/_nav.scss */
 .nav-tabs > li {
   margin-right: 15px;
 }
-/* line 32, ../scss/_nav.scss */
+/* line 45, ../scss/_nav.scss */
 .nav-tabs > li > a {
   color: #222222;
   padding-left: 0;
@@ -134,7 +159,7 @@ p {
   position: relative;
   border: none;
 }
-/* line 43, ../scss/_nav.scss */
+/* line 56, ../scss/_nav.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover,
 .nav-tabs > li > a:focus,
 .nav-tabs > li > a:hover {
@@ -142,7 +167,7 @@ p {
   color: #222222;
   background: none;
 }
-/* line 47, ../scss/_nav.scss */
+/* line 60, ../scss/_nav.scss */
 .nav-tabs > li.active > a:after, .nav-tabs > li.active > a:focus:after, .nav-tabs > li.active > a:hover:after,
 .nav-tabs > li > a:focus:after,
 .nav-tabs > li > a:hover:after {
@@ -155,8 +180,12 @@ p {
   width: 100%;
   bottom: -1px;
 }
+/* line 71, ../scss/_nav.scss */
+.nav-tabs > li:last-child {
+  margin-right: 0;
+}
 
-/* line 60, ../scss/_nav.scss */
+/* line 76, ../scss/_nav.scss */
 .tab-content {
   padding: 20px 0;
 }
@@ -373,13 +402,17 @@ img {
   margin-top: 0;
   margin-bottom: 20px;
 }
+/* line 58, ../scss/_main.scss */
+.the-title h4 {
+  margin: 0;
+}
 
-/* line 59, ../scss/_main.scss */
+/* line 62, ../scss/_main.scss */
 h1.the-title {
   margin-bottom: 30px;
 }
 
-/* line 62, ../scss/_main.scss */
+/* line 65, ../scss/_main.scss */
 .article-item {
   margin-bottom: 30px;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -387,95 +420,96 @@ h1.the-title {
   -ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-/* line 65, ../scss/_main.scss */
+/* line 68, ../scss/_main.scss */
 .article-item h4.article-title {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
-/* line 70, ../scss/_main.scss */
+/* line 73, ../scss/_main.scss */
 .article-item .article-summary {
   padding: 10px 20px 20px;
 }
-/* line 73, ../scss/_main.scss */
+/* line 76, ../scss/_main.scss */
 .article-item .summary {
   min-height: 80px;
 }
-/* line 76, ../scss/_main.scss */
+/* line 79, ../scss/_main.scss */
 .article-item .article-meta {
   color: #888888;
 }
 
-/* line 82, ../scss/_main.scss */
+/* line 85, ../scss/_main.scss */
 .avatar img,
 .thumb-img img {
   width: 100%;
 }
-/* line 85, ../scss/_main.scss */
+/* line 88, ../scss/_main.scss */
 .avatar > a,
 .thumb-img > a {
   display: block;
 }
 
-/* line 90, ../scss/_main.scss */
+/* line 93, ../scss/_main.scss */
 .register-form .list-inline {
   margin-bottom: 0;
 }
-/* line 92, ../scss/_main.scss */
+/* line 95, ../scss/_main.scss */
 .register-form .list-inline li {
   max-width: 113px;
+  margin-bottom: 5px;
 }
 
-/* line 97, ../scss/_main.scss */
+/* line 101, ../scss/_main.scss */
 .links-list {
   margin: 10px 0;
 }
-/* line 99, ../scss/_main.scss */
+/* line 103, ../scss/_main.scss */
 .links-list span {
   display: block;
 }
-/* line 102, ../scss/_main.scss */
+/* line 106, ../scss/_main.scss */
 .links-list a {
   color: #2841bf;
 }
 
-/* line 107, ../scss/_main.scss */
+/* line 111, ../scss/_main.scss */
 .photo-upload input[type="file"] {
   display: none;
 }
-/* line 110, ../scss/_main.scss */
+/* line 114, ../scss/_main.scss */
 .photo-upload .upload-thumb {
   width: 125px;
   position: relative;
 }
-/* line 113, ../scss/_main.scss */
+/* line 117, ../scss/_main.scss */
 .photo-upload .upload-thumb img {
   margin: 10px 0 0;
 }
-/* line 117, ../scss/_main.scss */
+/* line 121, ../scss/_main.scss */
 .photo-upload .icon-delete {
   position: absolute;
   top: 3px;
   right: -7px;
 }
 
-/* line 123, ../scss/_main.scss */
+/* line 127, ../scss/_main.scss */
 .article {
   margin-bottom: 20px;
 }
-/* line 126, ../scss/_main.scss */
+/* line 130, ../scss/_main.scss */
 .article .article-title .share-social {
   margin: 8px 0;
 }
 
-/* line 131, ../scss/_main.scss */
+/* line 135, ../scss/_main.scss */
 .top-project-content {
   background-color: #000000;
   height: 392px;
   margin-bottom: 40px;
   position: relative;
 }
-/* line 137, ../scss/_main.scss */
+/* line 141, ../scss/_main.scss */
 .top-project-content .top-project-banner {
   width: 100%;
   height: 100%;
@@ -484,13 +518,13 @@ h1.the-title {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* line 143, ../scss/_main.scss */
+/* line 147, ../scss/_main.scss */
 .top-project-content .top-project-banner img {
   width: 100%;
   height: 100%;
   opacity: 0;
 }
-/* line 148, ../scss/_main.scss */
+/* line 152, ../scss/_main.scss */
 .top-project-content .top-project-infos {
   width: 250px;
   position: absolute;
@@ -498,18 +532,18 @@ h1.the-title {
   top: 0;
   bottom: 0;
 }
-/* line 155, ../scss/_main.scss */
+/* line 159, ../scss/_main.scss */
 .top-project-content .top-project-infos ul {
   padding: 25px 0;
   margin: 0;
 }
-/* line 158, ../scss/_main.scss */
+/* line 162, ../scss/_main.scss */
 .top-project-content .top-project-infos ul li {
   margin: 25px 0;
   color: #ffffff;
   text-transform: uppercase;
 }
-/* line 162, ../scss/_main.scss */
+/* line 166, ../scss/_main.scss */
 .top-project-content .top-project-infos ul li strong {
   font-size: 60px;
   display: block;
@@ -517,7 +551,7 @@ h1.the-title {
   line-height: 1;
 }
 
-/* line 173, ../scss/_main.scss */
+/* line 177, ../scss/_main.scss */
 .on-row-list .article-item {
   position: relative;
   -webkit-box-shadow: none;
@@ -525,7 +559,7 @@ h1.the-title {
   -ms-box-shadow: none;
   box-shadow: none;
 }
-/* line 176, ../scss/_main.scss */
+/* line 180, ../scss/_main.scss */
 .on-row-list .article-item:after {
   content: ".";
   width: 100%;
@@ -534,7 +568,7 @@ h1.the-title {
   line-height: 0;
   height: 0;
 }
-/* line 184, ../scss/_main.scss */
+/* line 188, ../scss/_main.scss */
 .on-row-list .article-item .thumb-img {
   float: left;
   width: 124px;
@@ -543,16 +577,16 @@ h1.the-title {
   -ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-/* line 188, ../scss/_main.scss */
+/* line 192, ../scss/_main.scss */
 .on-row-list .article-item .thumb-img + .article-summary {
   margin-left: 139px;
   padding: 0;
 }
-/* line 193, ../scss/_main.scss */
+/* line 197, ../scss/_main.scss */
 .on-row-list .article-item.button-right {
   padding-right: 180px;
 }
-/* line 196, ../scss/_main.scss */
+/* line 200, ../scss/_main.scss */
 .on-row-list .article-item.button-right .button-block {
   width: 166px;
   position: absolute;
@@ -560,9 +594,38 @@ h1.the-title {
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 202, ../scss/_main.scss */
+/* line 206, ../scss/_main.scss */
 .on-row-list .article-item.button-right .button-block .btn {
-  min-width: 100%;
+  min-width: 166px;
+}
+@media (max-width: 480px) {
+  /* line 212, ../scss/_main.scss */
+  .on-row-list .article-item .thumb-img {
+    margin: 0 15px 8px 0;
+  }
+  /* line 214, ../scss/_main.scss */
+  .on-row-list .article-item .thumb-img + .article-summary {
+    margin-left: 0;
+    padding: 0;
+  }
+  /* line 219, ../scss/_main.scss */
+  .on-row-list .article-item.button-right {
+    padding-right: 0;
+  }
+  /* line 221, ../scss/_main.scss */
+  .on-row-list .article-item.button-right .button-block {
+    width: auto;
+    transform: translateY(0);
+    position: static;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 360px) {
+  /* line 232, ../scss/_main.scss */
+  .on-row-list .article-item.button-right .button-block .btn {
+    width: 145px;
+    min-width: 100px;
+  }
 }
 
 /* line 1, ../scss/_icons.scss */

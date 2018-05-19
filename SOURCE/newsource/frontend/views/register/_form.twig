@@ -1,4 +1,5 @@
 {# empty Twig template #}
+
 <form class="form-horizontal" method="POST" enctype="multipart/form-data" id="register-form">
     <input type="hidden" name="Register[casting_id]" value="{{casting.id}}">
     <input type="hidden" name="{{csrfParam}}" value="{{csrfToken}}">
@@ -19,11 +20,7 @@
             </div>
             <label class="col-sm-2 control-label">Năm sinh</label>
             <div class="col-sm-2">
-                    <select class="form-control" name="Register[birth_year]">
-                            <option value="1990">1990</option>
-                            <option value="1991">1991</option>
-                            <option value="1992">1992</option>
-                    </select>
+                    <input name="Register[birth_year]" type="text" class="form-control datepicker"/>
             </div>
     </div>
     <div class="form-group">
@@ -48,27 +45,27 @@
             </div>
     </div>#}
     <div class="form-group">
-            <label class="col-sm-2 control-label">Chiều cao</label>
+            <label class="col-sm-2 control-label">Chiều cao(cm)</label>
             <div class="col-sm-2">
                     <input type="text" class="form-control validate[required]" name="Register[height]"/>
             </div>
-            <label class="col-sm-2 control-label">Cân nặng</label>
+            <label class="col-sm-2 control-label">Cân nặng(kg)</label>
             <div class="col-sm-2">
                     <input type="text" class="form-control validate[required]" name="Register[weight]"/>
             </div>
     </div>
     <div class="form-group">
-            <label class="col-sm-2 control-label">Số đo</label>
+            <label class="col-sm-2 control-label">Số đo(cm)</label>
             <div class="col-sm-9">
                     <ul class="list-unstyled list-inline">
                             <li>
-                                    <input type="text" class="form-control validate[required]" placeholder="Ngực" name="Register[chest]"/>
+                                    <input type="text" class="form-control validate[required]" placeholder="Ngực(cm)" name="Register[chest]"/>
                             </li>
                             <li>
-                                    <input type="text" class="form-control validate[required]" placeholder="Bụng" name="Register[waist]"/>
+                                    <input type="text" class="form-control validate[required]" placeholder="Bụng(cm)" name="Register[waist]"/>
                             </li>
                             <li>
-                                    <input type="text" class="form-control validate[required]" placeholder="Mông" name="Register[butt]"/>
+                                    <input type="text" class="form-control validate[required]" placeholder="Mông(cm)" name="Register[butt]"/>
                             </li>
                     </ul>
             </div>
@@ -104,11 +101,11 @@
     <div class="form-group">
             <label class="col-sm-2 control-label">Link sản phẩm</label>
             <div class="col-sm-9 insert-links" id="product-add">
-                    <div class="input-group">
-                            <input type="text" class="form-control validate[required]" name="Register[product][]"/>
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default" type="button">Thêm</button> </span>
-                    </div>
+{#                    <div class="input-group">#}
+                            <textarea row="12" class="form-control validate[required]" name="Register[product][]"></textarea>
+{#                            <span class="input-group-btn"> 
+                                <button class="btn btn-default" type="button">Thêm</button> </span>#}
+{#                    </div>#}
                     <div class="links-list">
 
                     </div>

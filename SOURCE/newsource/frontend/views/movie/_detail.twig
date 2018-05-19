@@ -55,10 +55,10 @@
                                                                 </div>
                                                                 <div class="article-summary">
                                                                         <h4 class="article-title"><a href="javascript:void(0)">{{val.name}}</a></h4>
-                                                                        <div class="summary"><p>{{val.description}}</p></div>
+                                                                        <div class="summary"><p>{{val.description|raw}}</p></div>
                                                                 </div>
                                                                 <div class="button-block">
-                                                                        <a href="{{url('register/index',{ 'id':val.id })}}" class="btn btn-danger">Đăng ký</a>
+                                                                        <a href="{{url('register/index',{ 'id':val.id,'movieid':movie.slug })}}" class="btn btn-danger">Đăng ký</a>
                                                                 </div>
                                                         </article>
                                                 </li>

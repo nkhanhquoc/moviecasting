@@ -52,7 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'attribute' => 'movie_id',
                                 'format' => 'raw', //raw, html
                                 'content' => function($dataProvider) {
-                                Movie::findOne($dataProvider['movie_id'])->name;
+                                $m =  Movie::find()->where($dataProvider['movie_id'])->one();//->name;
+                                if($m)return $m->name;
                                 }
                             ],
                             'created_time',                           

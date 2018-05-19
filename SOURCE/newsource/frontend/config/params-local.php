@@ -40,6 +40,6 @@ return [
     'upload_dir' =>[
         'register' => '\upload\images\register',
     ],
-    'page_movie' => 1,
+    'page_movie' => 6,
 
 ];

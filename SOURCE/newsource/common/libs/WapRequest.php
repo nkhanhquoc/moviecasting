@@ -43,6 +43,7 @@ class WapRequest extends Request
         // only validate POST requests
         if ($method == "POST") {
             if (!$token) {
+//                $token = self::getCsrfTokenFromHeader();
                 if ($this->getBodyParam($this->csrfParam)) {
                     $token = $this->getBodyParam($this->csrfParam);
                 } else if ($this->getCsrfTokenFromHeader()) {

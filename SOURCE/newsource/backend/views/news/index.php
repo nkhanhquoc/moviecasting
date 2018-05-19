@@ -48,7 +48,17 @@ $this->params['breadcrumbs'][] = $this->title;
                         'columns' => [
                             ['class' => 'yii\grid\SerialColumn'],
                             'title',                            
-                            'description',                           
+                            'description',   
+                            [
+                                'attribute' => 'status',
+                                'format' => 'raw', //raw, html
+                                'content' => function($dataProvider) {
+                                switch($dataProvider['status']){
+                                    case 1: return "Hiển thị"; 
+                                    default: return "Ẩn"; 
+                                };
+                                }
+                            ], 
                             'created_time',                           
                             ['class' => 'yii\grid\ActionColumn'],
                         ],

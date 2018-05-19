@@ -4,12 +4,16 @@
         <h4>Các tin khác</h4>
     </div>
     <ul class="row articles-list list-unstyled" id="list-news-container">
+        {% if page > 0 %}
         <input type="hidden" value="{{page}}" id="news-list-page">
+        {% endif %}
        {{ include('_listmore.twig',{'others':others}) }}
     </ul>
+    {% if total > limit %}
     <div class="text-center">
         <a href="javascrip:void(0)" 
-           onclick="loadMore('/movie/more-view/{{removeid}}/','list-news-container','news-list-page')"
-           id="news-more-button"
+           onclick="loadMore('/news/more-view/{{removeid}}/','list-news-container','news-list-page')"
+           id="more-button"
            class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+           {% endif %}
 </section>

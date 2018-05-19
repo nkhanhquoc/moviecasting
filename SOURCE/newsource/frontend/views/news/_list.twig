@@ -1,12 +1,17 @@
 {# empty Twig template #}
 <section class="section">
-                 <ul class="row articles-list list-unstyled" id="list-news-container">
-        <input type="hidden" value="{{page}}" id="news-list-page">
-       {{ include('_listmore.twig',{'others':others}) }}
+    <ul class="row articles-list list-unstyled" id="list-news-container">
+        {% if page > 0 %}
+            <input type="hidden" value="{{page}}" id="news-list-page">
+        {% endif %}
+        {{ include('_listmore.twig',{'others':others}) }}
     </ul>
-    <div class="text-center">
-        <a href="javascrip:void(0)" 
-           onclick="loadMore('/news/more-view/{{removeid}}/','list-news-container','news-list-page')"
-           id="news-more-button"
-           class="btn btn-dark btn-load-more">XEM THÊM</a></div>
-            </section>
+    {% if total > limit %}
+        <div class="text-center">
+            <a href="javascrip:void(0)" 
+               onclick="loadMore('/news/more-view/{{removeid}}/', 'list-news-container', 'news-list-page')"
+               id="more-button"
+               class="btn btn-dark btn-load-more">XEM THÊM</a></div>
+    
+    {% endif %}
+    </section>

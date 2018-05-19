@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="52b59f1b-f5b7-4e01-adec-cd05bf00e804" name="googledcb_252" url="http://192.168.146.252">
-        <fileTransfer host="192.168.146.252" port="22" rootFolder="/home/imuzik/phuonghv2/googledcb" accessType="SFTP" password="df9bdf98df99df9edf9fdf9cdfcbdfea" username="imuzik">
+      <webServer id="9783d8ec-25d2-4706-9128-323dac6d4ea4" name="akhanhnv_mv" url="http://118.69.194.183">
+        <fileTransfer host="118.69.194.183" port="22" rootFolder="/home/casting" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

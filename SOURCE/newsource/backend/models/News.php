@@ -76,7 +76,8 @@ class News extends NewsBase{
             'content' => 'Nội dung',
             'description' => 'Mô tả',
             'image_path' => 'Ảnh',
-            'created_time'=>'Ngày tạo'
+            'created_time'=>'Ngày tạo',
+            'status' => "Trạng thái"
         ];
     }
 

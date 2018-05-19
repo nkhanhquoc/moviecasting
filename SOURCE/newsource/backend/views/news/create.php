@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $model backend\models\Menu */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Vai diễn',
+    'modelClass' => 'Tin tức',
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Admin'), 'url' => '#'];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Vai diễn'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Tin tức'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row menu-create">

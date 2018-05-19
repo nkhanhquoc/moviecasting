@@ -22,35 +22,58 @@ class NewsController extends AppController {
     public function actionIndex() {
         $limit = Yii::$app->params['page_movie'];
         $hot = News::find()->where(['status' => 1])->orderBy('created_time desc')->one();
-        $others = array();
+        $page = 0;
+        $others = News::find()
+                ->where(['status' => 1])
+//                    ->andWhere(['not in', 'id', $hot->id])
+                ->orderBy('created_time desc');
+//                    ->limit($limit)
+//                    ->all();
         if ($hot) {
-            $others = News::find()
-                    ->where(['status' => 1])
-                    ->andWhere(['not in', 'id', $hot->id])
-                    ->orderBy('created_time desc')
-                    ->limit($limit)
-                    ->all();
+            $others->andWhere(['not in', 'id', $hot->id]);
+        }
+        $all = $others->all();
+        $total = count($all);
+        $list = $all;
+        if($total > $limit){
+            $list = array_slice($all, 0, $limit);
+            $page = 2;
         }
         return $this->render('index.twig', [
                     'hot' => $hot,
-                    'others' => $others,
-                    'page' => 2,
-                    'removeid' => $hot->id
+                    'others' => $list,
+                    'page' => $page,
+                    'removeid' => $hot->id,
+            'total'=>$total,
+            'limit'=>$limit
         ]);
     }
 
     public function actionDetail() {
         $id = Yii::$app->getRequest()->getQueryParam('id');
         $news = News::find()->where(['id' => $id, 'status' => 1])->one();
+        $page = 0;
         $other = News::find()
                 ->where(['!=', 'id', $id])
                 ->andWhere(['status' => 1])
                 ->all();
 
         if ($news) {
+            $total = count($other);
+            $limit = Yii::$app->params['page_movie'];
+            if ($total > $limit) {
+                $list = array_slice($other, 0, $limit);
+                $page = 2;
+            } else {
+                $list = $other;
+            }
             return $this->render('detail.twig', [
                         'news' => $news,
-                        'others' => $other
+                        'others' => $list,
+                        'limit' => $limit,
+                        'total' => count($other),
+                        'page' => $page,
+                
             ]);
         } else {
             throw \yii\web\NotFoundHttpException;
@@ -73,9 +96,15 @@ class NewsController extends AppController {
         $text = $this->render('_listmore.twig', [
             'others' => $listMore
         ]);
+        if($page*$limit >= count($movie)){
+            $hide = 1;
+        } else {
+            $hide = 0;
+        }
         $arrData = array(
             'text' => $text,
-            'page' => $page + 1
+            'page' => $page + 1,
+            'hide' =>$hide
         );
         return json_encode($arrData);
     }

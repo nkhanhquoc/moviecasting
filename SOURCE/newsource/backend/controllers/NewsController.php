@@ -121,7 +121,7 @@ class NewsController extends AppController{
             if ($model->upload())
             {
 //                $model->updateCategory();
-                $model->save();
+                $model->save(false);
                 Yii::$app->session->setFlash('success', "Cập nhật thành công!");
                 return $this->render('update', [
                     'model' => $model,
@@ -139,5 +139,11 @@ class NewsController extends AppController{
                     'model' => $model,
                 ]);
         }
+    }
+    
+     public function actionDelete($id){
+        $model = $this->findModel($id)->delete();
+        Yii::$app->session->setFlash('success', 'Xóa user thành công!');
+        return $this->redirect(['index']);
     }
 }

@@ -95,7 +95,7 @@ class MovieController extends AppController{
                 ]);
             }else{
                 if ($model->upload()) {
-                    $model->save(false);
+                    $model->save();
                     Yii::$app->session->setFlash('success', "Thêm mới thành công!");
                    
                     return $this->redirect(['update', 'id' => $model->id]);
@@ -121,28 +121,48 @@ class MovieController extends AppController{
     {
         $model = $this->findModel($id);
 
-//           var_dump(Yii::$app->request->post());die;
+        $params = Yii::$app->request->post();
         if ($model->load(Yii::$app->request->post())) {
+//        var_dump($params);die;
             if ($model->upload())
             {
 //                $model->updateCategory();
-                $model->save();
+                try{
+//                    var_dump(strtotime($params['Movie']['end_time']));die;
+//                    $model->end_time =  Yii::$app->formatter->asDate($params['Movie']['end_time'],'Y-m-d');
+                    $model->end_time =  date('Y-m-d',strtotime($params['Movie']['end_time']));
+                    $model->save(false);
+                }catch(Exception $e){
+                    Yii::$app->session->setFlash('error', "Cập nhật thất bai!");
+//                    return $this->render('update', [
+//                    'model' => $model,
+//                ]);
+                }
+                
                 Yii::$app->session->setFlash('success', "Cập nhật thành công!");
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
+//                return $this->render('update', [
+//                    'model' => $model,
+//                ]);
             }else
             {
                 Yii::$app->session->setFlash('error', "Cập nhật thất bai!");
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
+//                return $this->render('update', [
+//                    'model' => $model,
+//                ]);
             }
+            $model = $this->findModel($id);
+        }
 
-        } else {
+
             return $this->render('update', [
                     'model' => $model,
                 ]);
-        }
+
+    }
+    
+    public function actionDelete($id){
+        $model = $this->findModel($id)->delete();
+        Yii::$app->session->setFlash('success', 'Xóa user thành công!');
+        return $this->redirect(['index']);
     }
 }

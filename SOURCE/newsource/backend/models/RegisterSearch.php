@@ -30,12 +30,13 @@ class RegisterSearch extends Register{
         return [
             [['casting_id', 'genre','status','star','chest_from',
                 'chest_to','waist_from','waist_to','butt_from','butt_to'], 'integer'],
-            [['created_time','birth_year'], 'safe']
+            [['created_time','birth_year'], 'safe'],
+            [['name','blacklist_note'],'string']
         ];
     }
 
     public function search($params) {
-        $query = Register::find();
+        $query = Register::find()->orderBy('id desc');
         $castingid = $params['RegisterSearch']['casting_id'];
         if ($castingid != null) {
             $query->andWhere(['casting_id' => $castingid]);
@@ -116,7 +117,12 @@ class RegisterSearch extends Register{
         if ($params['RegisterSearch']['weight_to'] != null) {
             $query->andWhere(['<','weight',$params['RegisterSearch']['weight_to']]);
         } 
-        
+        if ($params['RegisterSearch']['blacklist_note'] != null) {
+            $query->andWhere(['like','blacklist_note',$params['RegisterSearch']['blacklist_note']]);
+        } 
+        if ($params['RegisterSearch']['name'] != null) {
+            $query->andWhere(['like','name',$params['RegisterSearch']['name']]);
+        }   
         
         
         
@@ -148,7 +154,12 @@ class RegisterSearch extends Register{
             'waist_from' => "Vòng hai từ",
             'waist_to' => "Vòng hai đến",
             'butt_from' => "Vòng ba từ",
-            'butt_to' => "Vòng ba đến"
+            'butt_to' => "Vòng ba đến",
+            'height_from'=> "Chiều cao từ",
+            'height_to'=>"Chiều cao đến",
+            'weight_from'=>"Cân nặng từ",
+            'weight_to'=>"Cân nặng đến",
+            'blacklist_note'=>"Nhận xét",
         ];
     }
 }

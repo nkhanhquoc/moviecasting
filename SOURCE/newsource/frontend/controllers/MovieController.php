@@ -21,21 +21,37 @@ class MovieController extends AppController {
 
     //put your code here
     public function actionIndex() {
-        $id = Yii::$app->getRequest()->getQueryParam('id');
+        $slug = Yii::$app->getRequest()->getQueryParam('slug');
+        $page = 0;
         $limit = Yii::$app->params['page_movie'];
-        $movie = Movie::findOne($id);
-        $casting = Casting::find()->where(['movie_id' => $id, 'status' => 1])->all();
-        $arrHot = array();
-        foreach ($hot as $h) {
-            $arrHot[] = $h->id;
+        $movie = Movie::find()->where(['slug'=>$slug])->one();
+        if($movie){
+            $casting = Casting::find()->where(['movie_id' => $movie->id, 'status' => 1])->all();            
+        } else {
+            $casting = array();
         }
-        $normal = Movie::getNormal($arrHot,$limit);
+        $arrHot = array();
+//        foreach ($movie as $h) {
+//            $arrHot[] = $h->id;
+//        }
+        $query = Movie::find()->where(['status' => 1, 'hot' => 0])
+                ->andWhere(['<>', 'id', $movie->id])
+                ->orderBy('id desc')
+                ->all();
+        $total = count($query);
+        $list = $query;
+        if ($total > $limit) {
+            $list = array_slice($query, 0, $limit);
+            $page = 2;
+        }
         return $this->render('moviedetail.twig', [
                     'hot' => $hot,
-                    'normal' => $normal,
+                    'normal' => $list,
                     'movie' => $movie,
                     'casting' => $casting,
-                    'page' => 2
+                    'page' => $page,
+                    'total' => $total,
+                    'limit' => $limit
         ]);
     }
 
@@ -43,7 +59,7 @@ class MovieController extends AppController {
         $this->layout = false;
         $page = Yii::$app->getRequest()->getQueryParam('page');
         $removeid = Yii::$app->getRequest()->getQueryParam('removeid');
-        $movie = Movie::getMoreMovie($removeid,true);
+        $movie = Movie::getMoreMovie($removeid, true);
         $limit = Yii::$app->params['page_movie'];
         if (!$page)
             $page = 1;
@@ -52,13 +68,40 @@ class MovieController extends AppController {
         $pages->setPageSize($limit);
         $listMore = array_slice($movie, ($page - 1) * $limit, $limit);
         $text = $this->render('_listmore.twig', [
-                    'normal' => $listMore
+            'normal' => $listMore
         ]);
+        if ($page * $limit >= count($movie)) {
+            $hide = 1;
+        } else {
+            $hide = 0;
+        }
         $arrData = array(
-            'text'=>$text,
-            'page'=>$page+1
+            'text' => $text,
+            'page' => $page + 1,
+            'hide' => $hide
         );
         return json_encode($arrData);
+    }
+
+    public function actionList() {
+        $limit = Yii::$app->params['page_movie'];
+        $normal = Movie::find()
+                ->where(['status' => 1])
+//                ->limit($limit)
+                ->orderBy('id desc')
+                ->all();
+        if (count($normal) > $limit) {
+            $list = array_slice($normal, 0, $limit);
+            $page = 2;
+        } else {
+            $list = $normal;
+            $page = 0;
+        }
+        return $this->render('list.twig', [
+                    'normal' => $list,
+                    'page' => $page,
+                    'removeid' => 0
+        ]);
     }
 
 }

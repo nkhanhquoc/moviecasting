@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'columns' => [
                             'id',
                             'username',
-                            'email:email',
+//                            'email:email',
                             [
                                 'attribute' => 'status',
                                 'format' => 'raw', //raw, html

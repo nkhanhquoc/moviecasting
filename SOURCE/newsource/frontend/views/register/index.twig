@@ -22,10 +22,10 @@
                                         <h3 class="the-title">{{ casting.name }}</h3>
                                         <div class="row">
                                             <div class="col-sm-8">
-                                                    <p>{{ casting.description }}</p>
+                                                    <p>{{ casting.description|raw }}</p>
                                             </div>
                                             <div class="col-sm-4">
-                                                    <a href="#" class="btn btn-dark btn-block">Chọn nhân vật khác</a>
+                                                    <a href="{{ url('movie/index',{'slug':movieid }) }}" class="btn btn-dark btn-block">Chọn nhân vật khác</a>
                                             </div>
                                         </div>
                                     </div>

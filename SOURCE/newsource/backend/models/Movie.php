@@ -13,6 +13,7 @@ use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\helpers\FileHelper;
 use common\libs\Images;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * Description of Movie
@@ -31,6 +32,12 @@ class Movie extends MovieBase {
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_time'],
                 ],
                 'value' => new Expression('NOW()'),
+            ],
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'name',
+//                'immutable' => true,
+                'ensureUnique'=>true,
             ],
         ];
     }
